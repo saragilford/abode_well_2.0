@@ -9,9 +9,7 @@ $(document).ready(function() {
     url: 'http://localhost:3000',
     dataType: 'json'
     }).done(function(data){
-      console.log(data[0].address);
-      console.log (data[1].neighborhood);
-      console.log(data[2].zip_code);
+
     })
   });
 

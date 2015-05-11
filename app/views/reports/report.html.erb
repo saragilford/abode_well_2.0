@@ -1,18 +1,1 @@
-<div class="report-container">
-<h1 class="address">Address:  </h1>
 
-   <div class="report-dropdown">
-    <select name="report-form-dropdown" id="report-form-dropdown">
-      <% @report_categories.each do |category| %>
-        <option value="<%= category %>"><%= category %></option>
-      <% end %>
-    </select>
-   </div>
-
-    <%= erb :'report/_leaseincrease' %>
-    <%= erb :'report/_maintenenceissue' %>
-    <%= erb :'report/_evictionnotice' %>
-    <%= erb :'report/_otherharassment' %>
-
-
-</div>

@@ -1,9 +1,7 @@
 class BuildingsController < ApplicationController
 
   def index
-
-    # @buildings = Building.all
-    # render json: @buildings
+    render :"buildings/index"
   end
 
   def new
@@ -26,16 +24,5 @@ class BuildingsController < ApplicationController
   end
 
 
-  def edit
-
-  end
-
-  def update
-
-  end
-
-  def destroy
-
-  end
 
 end
