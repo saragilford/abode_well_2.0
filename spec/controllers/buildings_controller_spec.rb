@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe BuildingsController, type: :controller do
 
+  before :each do
+    @building = Building.first
+  end
+
   describe "GET #index" do
     it "returns http success" do
       get :index
