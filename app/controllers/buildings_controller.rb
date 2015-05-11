@@ -1,6 +1,18 @@
 class BuildingsController < ApplicationController
 
   def index
+    render :"buildings/index"
+  end
+
+  def search
+    @only_zips = []
+    @buildings = Building.where(zip_code: params[:zip_code])
+      @buildings.each do |building|
+        if building.address.only_numbers == params[:address].only_numbers
+          @only_zips << building
+        end
+      end
+    return @only_zips
   end
 
   def search
@@ -28,7 +40,8 @@ class BuildingsController < ApplicationController
     @score=@building.badge_score
   # had a merge conflict here:  does it still work?
 
-    @report_categories = ["RentIncrease", "MaintenenceIssue", "EvictionNotice", "OtherHarassment"]
+    @report_categories = ["Select...", "LeaseIncrease", "MaintenenceIssue", "EvictionNotice", "OtherHarassment"]
+
     @letter_options = ["Ellis Act", "Landlord Move-In", "Condo Conversion"]
     @building = Building.where(id: params[:id]).first
 
@@ -58,8 +71,5 @@ class BuildingsController < ApplicationController
     render :"buildings/building_profile"
     # render json:  @building
   end
-
-
-
 
 end
