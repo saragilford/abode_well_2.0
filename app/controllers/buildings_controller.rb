@@ -29,7 +29,7 @@ class BuildingsController < ApplicationController
     @score=@building.badge_score
   # had a merge conflict here:  does it still work?
 
-    @report_categories = ["RentIncrease", "MaintenenceIssue", "EvictionNotice", "OtherHarassment"]
+    @report_categories = ["Select...", "LeaseIncrease", "MaintenenceIssue", "EvictionNotice", "OtherHarassment"]
     @letter_options = ["Ellis Act", "Landlord Move-In", "Condo Conversion"]
     @building = Building.where(id: params[:id]).first
 

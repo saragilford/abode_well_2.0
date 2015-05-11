@@ -1,8 +1,8 @@
-<script type="text/x-handlebars-template" id="evict-template">
-  <div class="evict-notice-form">
+
+  <div class="evict-notice-form EvictionNotice">
 
     <h2>Report Your Eviction Notice</h2>
-    <form action="http://localhost:3000/buildings/building_id/eviction_notices" method="POST">
+    <form action="/_evictionnotice" method="POST">
       <label>Type of letter:</label> <!--add dropdown with necessary options-->
       <div class="letter-dropdown">
         <select name="category">
@@ -18,6 +18,6 @@
     </form>
 
   </div>
-</script>
+
 
 
