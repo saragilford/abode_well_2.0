@@ -1,1 +1,10 @@
-<%= @only_zips%>
+
+<h3> Did you mean one of these?</h3>	
+
+<div>
+	<% @only_zips.each do |building|%>
+
+		<a href="/buildings/<%=building.id%>">building.address</a>
+
+	<% end %>
+</div>
