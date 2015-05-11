@@ -10,7 +10,13 @@ class Building < ActiveRecord::Base
   has_many  :rent_notices
   has_many  :eviction_notices
 
+  # search
+  #reduces to numbers exlusively
+  def only_numbers
+    self.gsub(/\s.+/,"")
+  end
 
+  # algorithm
   def badge_score
     subtract_score.to_s.to_i
   end
