@@ -1,0 +1,23 @@
+<script type="text/x-handlebars-template" id="evict-template">
+  <div class="evict-notice-form">
+
+    <h2>Report Your Eviction Notice</h2>
+    <form action="http://localhost:3000/buildings/building_id/eviction_notices" method="POST">
+      <label>Type of letter:</label> <!--add dropdown with necessary options-->
+      <div class="letter-dropdown">
+        <select name="category">
+          <% @letter_options.each do |option| %>
+            <option><%= option %> </option>
+          <% end %>
+        </select>
+      </div>
+
+      <label>Comment: </label>
+      <textarea cols="40" rows="5" name="comment" placeholder="Provide more detail..."></textarea>
+      <input type="submit" value="Submit Report">
+    </form>
+
+  </div>
+</script>
+
+
