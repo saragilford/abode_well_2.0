@@ -7,6 +7,22 @@ RSpec.describe BuildingsController, type: :controller do
       get :index
       expect(response).to have_http_status(:success)
     end
+    xit "requires an address string"
+    xit "requires a zip code integer"
+    xit "redirects to #search page"
+  end
+
+  describe "GET #search" do
+    it "returns http success" do
+      get :search
+      expect(response).to have_http_status(:success)
+    end
+    xit "has recieved address and zip code as params"
+    xit "returns a list of all buildings matching that zip code"
+    xit "selects only matching address numbers"
+    xit "creates an instance variable to hold matching addresses"
+    xit "renders a view of all results"
+    xit "displays results as links to show pages"
   end
 
   describe "GET #show" do

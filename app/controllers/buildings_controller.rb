@@ -6,6 +6,9 @@ class BuildingsController < ApplicationController
     # render json: @buildings
   end
 
+  def search
+  end
+
   def new
 
   end
@@ -37,5 +40,6 @@ class BuildingsController < ApplicationController
   def destroy
 
   end
+
 
 end
