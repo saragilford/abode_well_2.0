@@ -1,0 +1,2 @@
+module EvictionNoticesHelper
+end
