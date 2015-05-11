@@ -54,8 +54,6 @@ class BuildingsController < ApplicationController
 
   @reports_array = @reports_array.first(10)
 
-
-
     render :"buildings/building_profile"
     # render json:  @building
   end
