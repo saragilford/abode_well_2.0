@@ -1,0 +1,48 @@
+<div class="profile-container">
+  <h1 class="address">Address: <%= @building.address %></h1>
+  <h3 class="zipcode">Zipcode: <%= @building.zip_code %></h3>
+
+  <h3>Building Summary:</h3>
+  <ul>
+    <li>GentrEvict Score:<%= @building.badge_score %></li>
+    <li># Harassments:<%=@building.harassments.count %></li>
+    <li># Maintenence Issues:<%=@building.fixorders.count %></li>
+    <li># Eviction Notices:<%=@building.evictionnotices.count %></li>
+    <li># Rent Increases:<%=@building.rentnotices.count %></li>
+    <li># Ellis Act Evictions:<%=@building.ellisacts.count %></li>
+  </ul>
+
+<button id="report-button">Report On Your Building</button>
+
+<div class="report-container">
+
+   <div class="report-dropdown">
+    <select name="report-form-dropdown" id="report-form-dropdown">
+      <% @report_categories.each do |category| %>
+        <option value="<%= category %>"><%= category %></option>
+      <% end %>
+    </select>
+   </div>
+
+    <%= erb :'report/_leaseincrease' %>
+    <%= erb :'report/_maintenenceissue' %>
+    <%= erb :'report/_evictionnotice' %>
+    <%= erb :'report/_otherharassment' %>
+
+</div>
+
+  <div class="recent-reports-container">
+    <ul>
+    <% @reports_array.each do |report| %>
+      <li> <%= report.created_at.strftime("%b %d, %Y") %>|<%= report.comment %> </li>
+    <% end %>
+    </ul>
+  </div>
+
+  <div class="local-map">
+    <img src="images/fake-map.png"/>
+    <!--link to full map-->
+  </div>
+
+
+</div>
