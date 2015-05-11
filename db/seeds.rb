@@ -15,11 +15,11 @@ FixOrder.delete_all
 RentNotice.delete_all
 EvictionNotice.delete_all
 
-10.times do
+50.times do
 
 # create a building...
   @building = Building.new( address:Faker::Address.street_address,
-                            zip_code:Faker::Address.zip_code,
+                            zip_code:[90210,10011,94107,94121].sample,
                             latitude:Faker::Code.isbn,
                             longitude:Faker::Code.isbn,
                             neighborhood:["SOMA", "Mission", "Nob Hill", "Seacliff"].sample,

@@ -19,13 +19,13 @@ class BuildingsController < ApplicationController
     @only_zips = []
     @buildings = Building.where(zip_code: params[:zip_code])
       @buildings.each do |building|
-        if building.address.only_numbers == params[:address].only_numbers
+        if building.only_numbers == params[:address].gsub(/\s.+/,"")
           @only_zips << building
         end
       end
     return @only_zips
   end
-
+  
   def new
 
   end
@@ -65,8 +65,6 @@ class BuildingsController < ApplicationController
   @reports_array.sort!{|a,b|a.updated_at <=> b.updated_at}
 
   @reports_array = @reports_array.first(10)
-
-
 
     render :"buildings/building_profile"
     # render json:  @building
