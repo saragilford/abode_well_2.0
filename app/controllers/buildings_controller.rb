@@ -3,7 +3,8 @@ class BuildingsController < ApplicationController
   def index
     render :"buildings/index"
   end
-
+  
+  
   def new
 
   end
