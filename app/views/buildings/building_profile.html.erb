@@ -1,0 +1,29 @@
+<div class="profile-container">
+  <h1 class="address">Address: <%= @building.address %></h1>
+  <h3 class="zipcode">Zipcode: <%= @building.zip_code %></h3>
+
+  <h3>Building Summary:</h3>
+  <ul>
+    <li>GentrEvict Score:<%= @building.badge_score %></li>
+    <li># Harassments:<%=@building.harassments.count %></li>
+    <li># Maintenence Issues:<%=@building.fixorders.count %></li>
+    <li># Eviction Notices:<%=@building.evictionnotices.count %></li>
+    <li># Rent Increases:<%=@building.rentnotices.count %></li>
+    <li># Ellis Act Evictions:<%=@building.ellisacts.count %></li>
+  </ul>
+
+  <div class="recent-reports-container">
+    <ul>
+    <% @reports_array.each do |report| %>
+      <li> <%= report.created_at.strftime("%b %d, %Y") %>|<%= report.comment %> </li>
+    <% end %>
+    </ul>
+  </div>
+
+  <div class="local-map">
+    <img src="images/fake-map.png"/>
+    <!--link to full map-->
+  </div>
+
+
+</div>
