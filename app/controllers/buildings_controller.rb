@@ -36,9 +36,9 @@ class BuildingsController < ApplicationController
   end
 
   def show
-    @building=Building.find(params[:id])
-    @score=@building.badge_score
-  # had a merge conflict here:  does it still work?
+    @building = Building.find(params[:id])
+    @score = @building.badge_score
+
 
     @report_categories = ["Select...", "LeaseIncrease", "MaintenenceIssue", "EvictionNotice", "OtherHarassment"]
 
