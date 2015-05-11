@@ -1,0 +1,51 @@
+<div class="profile-container">
+  <h1 class="address">Address: <%= @building.address %></h1>
+  <h3 class="zipcode">Zipcode: <%= @building.zip_code %></h3>
+
+  <h3>Building Summary:</h3>
+  <ul>
+    <li>GentrEvict Score:<%= @building.badge_score %></li>
+    <li># Harassments:<%=@building.harassments.count %></li>
+    <li># Maintenence Issues:<%=@building.fix_orders.count %></li>
+    <li># Eviction Notices:<%=@building.eviction_notices.count %></li>
+    <li># Rent Increases:<%=@building.rent_notices.count %></li>
+    <li># Ellis Act Evictions:<%=@building.ellis_acts.count %></li>
+  </ul>
+
+<button id="report-button">Report On Your Building</button>
+
+<div class="report-container">
+
+   <div class="report-dropdown">
+    <select name="report-form-dropdown" id="report-form-dropdown">
+      <% @report_categories.each do |category| %>
+        <option value="<%= category %>"><%= category %></option>
+      <% end %>
+    </select>
+   </div>
+
+    <%= render partial: 'reports/leaseincrease' %>
+    <%= render partial: 'reports/maintenenceissue' %>
+    <%= render partial: 'reports/evictionnotice' %>
+    <%= render partial: 'reports/otherharassment' %>
+
+</div>
+
+  <div class="recent-reports-container">
+    <ul>
+    <% if @reports_array.length > 0 %>
+      <% @reports_array.each do |report| %>
+        <li> <%= report.created_at.strftime("%b %d, %Y") %>|<%= report.comment %> </li>
+      <% end %>
+    <% end %>
+    </ul>
+  </div>
+
+  <div class="local-map">
+    <img src=<%=image_path("fake-map.png")%>>
+
+    <!--link to full map-->
+  </div>
+
+
+</div>
