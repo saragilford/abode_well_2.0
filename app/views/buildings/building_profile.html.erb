@@ -6,10 +6,10 @@
   <ul>
     <li>GentrEvict Score:<%= @building.badge_score %></li>
     <li># Harassments:<%=@building.harassments.count %></li>
-    <li># Maintenence Issues:<%=@building.fixorders.count %></li>
-    <li># Eviction Notices:<%=@building.evictionnotices.count %></li>
-    <li># Rent Increases:<%=@building.rentnotices.count %></li>
-    <li># Ellis Act Evictions:<%=@building.ellisacts.count %></li>
+    <li># Maintenence Issues:<%=@building.fix_orders.count %></li>
+    <li># Eviction Notices:<%=@building.eviction_notices.count %></li>
+    <li># Rent Increases:<%=@building.rent_notices.count %></li>
+    <li># Ellis Act Evictions:<%=@building.ellis_acts.count %></li>
   </ul>
 
 <button id="report-button">Report On Your Building</button>
@@ -24,23 +24,26 @@
     </select>
    </div>
 
-    <%= erb :'report/_leaseincrease' %>
-    <%= erb :'report/_maintenenceissue' %>
-    <%= erb :'report/_evictionnotice' %>
-    <%= erb :'report/_otherharassment' %>
+    <%= render partial: 'reports/leaseincrease' %>
+    <%= render partial: 'reports/maintenenceissue' %>
+    <%= render partial: 'reports/evictionnotice' %>
+    <%= render partial: 'reports/otherharassment' %>
 
 </div>
 
   <div class="recent-reports-container">
     <ul>
-    <% @reports_array.each do |report| %>
-      <li> <%= report.created_at.strftime("%b %d, %Y") %>|<%= report.comment %> </li>
+    <% if @reports_array.length > 0 %>
+      <% @reports_array.each do |report| %>
+        <li> <%= report.created_at.strftime("%b %d, %Y") %>|<%= report.comment %> </li>
+      <% end %>
     <% end %>
     </ul>
   </div>
 
   <div class="local-map">
-    <img src="images/fake-map.png"/>
+    <img src=<%=image_path("fake-map.png")%>>
+
     <!--link to full map-->
   </div>
 
