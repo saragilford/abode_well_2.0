@@ -14,7 +14,7 @@
   </div> <!-- end nav-bar -->
 
   <div class="search-and-report-container">
-    <%= form_tag("new_search_path", method: "GET") do %>
+    <%= form_tag(new_search_path, method: "GET") do %>
       <%= label_tag(:address, "Address:")%>
         <%= text_field_tag(:address)%>
       <%= label_tag(:zip_code, "Zip Code:")%>
