@@ -2,8 +2,8 @@
   <div class="evict-notice-form EvictionNotice">
 
     <h2>Report Your Eviction Notice</h2>
-    <form action="/_evictionnotice" method="POST">
-      <label>Type of letter:</label> <!--add dropdown with necessary options-->
+    <form action="/buildings/<%=@building.id%>/eviction_notices" method="POST">
+      <label>Type of letter:</label>
       <div class="letter-dropdown">
         <select name="category">
           <% @letter_options.each do |option| %>
