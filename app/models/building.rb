@@ -12,6 +12,7 @@ class Building < ActiveRecord::Base
 
 
   #Data Import
+
   def self.import!
     new.import_pub!
   end

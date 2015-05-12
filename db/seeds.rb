@@ -16,6 +16,7 @@ FixOrder.delete_all
 RentNotice.delete_all
 EvictionNotice.delete_all
 
+
 Building.import!
 
 50.times do

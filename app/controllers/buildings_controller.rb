@@ -14,7 +14,7 @@ class BuildingsController < ApplicationController
       end
     return @only_zips
   end
-  
+
   def new
 
   end
