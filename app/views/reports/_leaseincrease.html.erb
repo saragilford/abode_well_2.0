@@ -1,6 +1,6 @@
 <div class="lease-increase-form LeaseIncrease">
 
-  <form action="/_leaseincrease" method="POST" class="lease-increase">
+  <form action="/buildings/<%=@building.id%>/rent_notices" method="POST">
     <label>Previous rent: $</label>
     <input type="integer" name="prior_rent">
     <label>New rent: $</label>
