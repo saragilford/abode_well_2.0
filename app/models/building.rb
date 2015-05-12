@@ -10,6 +10,103 @@ class Building < ActiveRecord::Base
   has_many  :rent_notices
   has_many  :eviction_notices
 
+
+  #Data Import
+  def self.import!
+    new.import_pub!
+  end
+
+  def import_pub!
+    import_move_in!
+    import_condo!
+    import_ellis!
+  end
+
+  def import_ellis!
+    CSV.foreach("Ellis_Act_Withdrawals.csv", encoding: "iso-8859-1:UTF-8", headers: true, header_converters: :symbol) do |row|
+       if exists?(row[:address])
+         p "Changing ELLIS of #{row[:address]}"
+         @building = Building.where(address: row[:address]).first
+         @building.ellis = true
+       else
+         latitude, longitude = parse_latitude_and_longitude_string(row[:lat_long])
+          attributes = {
+            address: reverse_geocode(latitude, longitude),
+            zip_code: row[:zip_code],
+            neighborhood: row[:neighborhood],
+            latitude: latitude,
+            longitude: longitude,
+            move_in: true,
+          }
+          puts "Creating new building: #{attributes.inspect}"
+          Building.create!(attributes)
+       end
+     end
+   end
+
+  def import_move_in!
+    CSV.foreach("Owner_Move_In.csv", encoding: "iso-8859-1:UTF-8", headers: true, header_converters: :symbol) do |row|
+        if exists?(row[:address])
+          p "Changing move in of #{row[:address]}"
+          @building = Building.where(address: row[:address]).first
+          @building.move_in = true
+        else
+          latitude, longitude = parse_latitude_and_longitude_string(row[:lat_long])
+          attributes = {
+            address: reverse_geocode(latitude, longitude),
+            zip_code: row[:zip_code],
+            neighborhood: row[:neighborhood],
+            latitude: latitude,
+            longitude: longitude,
+            move_in: true,
+          }
+          puts "Creating new building: #{attributes.inspect}"
+          Building.create!(attributes)
+        end
+    end
+  end
+
+  def import_condo!
+    CSV.foreach("Condo_Conv.csv", encoding: "iso-8859-1:UTF-8", headers: true, header_converters: :symbol) do |row|
+        if exists?(row[:address])
+          p "Changing condo conv of #{row[:address]}"
+          @building = Building.where(address: row[:address]).first
+          @building.condo_conv = true
+        else
+          latitude, longitude = parse_latitude_and_longitude_string(row[:lat_long])
+          attributes = {
+            address: reverse_geocode(latitude, longitude),
+            zip_code: row[:zip_code],
+            neighborhood: row[:neighborhood],
+            latitude: latitude,
+            longitude: longitude,
+            move_in: true,
+          }
+          puts "Creating new building: #{attributes.inspect}"
+          Building.create!(attributes)
+        end
+    end
+  end
+
+  def reverse_geocode(lat,long)
+    sleep(0.25)
+    result = Geocoder.search("#{lat}, #{long}").first
+    result.address.split(", ").first if result
+  end
+
+  def parse_latitude_and_longitude_string(string)
+    string.gsub("(","").gsub(")","").split(", ")
+  end
+
+  def exists?(address)
+    if Building.where(address: address).first
+      return true
+    end
+  end
+
+
+
+
   # search
   #reduces to numbers exlusively
   def only_numbers
