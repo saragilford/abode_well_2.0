@@ -1,9 +1,9 @@
 <div class="home-container debugger">
 
-  <!-- <div class="hero-image debugger">
+  <div class="hero-image debugger">
     <img class="hero-image debugger" src=<%= image_path('happyfamilySF_copyrightACainFlickr.png') %>>
   </div>
- -->
+
   <div class="nav-bar">
     <ul>
       <li>Home</li>
@@ -13,23 +13,17 @@
     </ul>
   </div> <!-- end nav-bar -->
 
+  <div class="search-and-report-container">
 
-<%= form_tag("/buildings/search", method: "GET") do %>
-  <%= label_tag(:address, "Address:")%>
-    <%= text_field_tag(:address)%>
-  <%= label_tag(:zip_code, "Zip Code:")%>
-    <%= text_field_tag(:zip_code)%>
-  <%= submit_tag("Search")  %>
-<% end %>
-  <!-- <div class="search-and-report-container">
-
-    <form action='/buildings/search' id="address-form" method='post'>
-      <input type='text' name='address' placeholder="Enter address...">
-      <input type='integer' name='zip_code' placeholder="Zip here...">
-    <button id="search-property-button">Search Property</button> <!--Needs to take form into consideration-->
-    <!-- </form> -->
-  </div> -->
-
+  <%= form_tag("/buildings/search", method: "GET") do %>
+    <%= label_tag(:address, "Address:")%>
+      <%= text_field_tag(:address)%>
+    <%= label_tag(:zip_code, "Zip Code:")%>
+      <%= text_field_tag(:zip_code)%>
+    <%= submit_tag("Search")  %>
+  <% end %>
+  </div>
+  
 </div>
 
 
