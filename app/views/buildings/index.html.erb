@@ -14,14 +14,13 @@
   </div> <!-- end nav-bar -->
 
   <div class="search-and-report-container">
-
-  <%= form_tag("/buildings/search", method: "GET") do %>
-    <%= label_tag(:address, "Address:")%>
-      <%= text_field_tag(:address)%>
-    <%= label_tag(:zip_code, "Zip Code:")%>
-      <%= text_field_tag(:zip_code)%>
-    <%= submit_tag("Search")  %>
-  <% end %>
+    <%= form_tag("/buildings/search", method: "GET") do %>
+      <%= label_tag(:address, "Address:")%>
+        <%= text_field_tag(:address)%>
+      <%= label_tag(:zip_code, "Zip Code:")%>
+        <%= text_field_tag(:zip_code)%>
+      <%= submit_tag("Search")  %>
+    <% end %>
   </div>
   
 </div>
