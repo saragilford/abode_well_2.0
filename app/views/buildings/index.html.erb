@@ -15,13 +15,15 @@
 
   <div class="search-and-report-container">
 
-    <form action='/buildings/search' id="address-form" method='post'>
-      <input type='text' name='address' placeholder="Enter address...">
-      <input type='integer' name='zip_code' placeholder="Zip here...">
-    <button id="search-property-button">Search Property</button> <!--Needs to take form into consideration-->
-    </form>
+  <%= form_tag("/buildings/search", method: "GET") do %>
+    <%= label_tag(:address, "Address:")%>
+      <%= text_field_tag(:address)%>
+    <%= label_tag(:zip_code, "Zip Code:")%>
+      <%= text_field_tag(:zip_code)%>
+    <%= submit_tag("Search")  %>
+  <% end %>
   </div>
-
+  
 </div>
 
 
