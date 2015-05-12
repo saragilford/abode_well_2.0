@@ -1,45 +1,39 @@
-<div class="home-container debugger">
+<div class="container-fluid home-container">
 
-  <div class="hero-image debugger">
-    <img class="hero-image debugger" src=<%= image_path('Rent-Control-in-San-Francisco.jpg') %>>
+  <div class="row">
+    <div class="hero-image">
+
+      <img class="hero-image img-responsive" alt="Responsive image" src=<%= image_path('Rent-Control-in-San-Francisco-alt.jpg') %>>
+
+      <div class="col search-and-report-container">
+
+      <form class="col-sm-4" action='/buildings/search' id="address-form" method='post'>
+        <input type='text' name='address' placeholder="Enter address...">
+        <input type='integer' name='zip_code' placeholder="Zip here...">
+        <button id="search-property-button">Search Property</button> <!--Needs to take form into consideration-->
+      </form>
+
+      </div>
+
+
+    </div>
+
+
   </div>
 
-  <div class="nav-bar">
-    <ul>
-      <li>Home</li>
-      <li>About</li>
-      <li>Map</li>
-      <li>Take Action!</li>
-    </ul>
+
+  <div class="row nav-bar">
+
+      <div class="col-md-4 col-md-1"></div>
+      <div class="col-md-1">Home</div>
+      <div class="col-md-1">About</div>
+      <div class="col-md-1">Map</div>
+      <div class="col-md-1">Take Action!</div>
+      <div class="col-md-4 col-md-1"></div>
+
   </div> <!-- end nav-bar -->
 
-  <div class="search-and-report-container">
 
-    <form action='/buildings/search' id="address-form" method='post'>
-      <input type='text' name='address' placeholder="Enter address...">
-      <input type='integer' name='zip_code' placeholder="Zip here...">
-    <button id="search-property-button">Search Property</button> <!--Needs to take form into consideration-->
-    </form>
-  </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div> <!-- home-container end -->
 
