@@ -43,6 +43,7 @@ class BuildingsController < ApplicationController
     @report_categories = ["Select...", "LeaseIncrease", "MaintenenceIssue", "EvictionNotice", "OtherHarassment"]
 
     @letter_options = ["Ellis Act", "Landlord Move-In", "Condo Conversion"]
+
     @building = Building.where(id: params[:id]).first
 
     @reports_array = []
