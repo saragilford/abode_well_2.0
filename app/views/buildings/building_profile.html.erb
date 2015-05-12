@@ -35,7 +35,7 @@
     <ul>
     <% if @reports_array.length > 0 %>
       <% @reports_array.each do |report| %>
-        <li> <%= report.created_at.strftime("%b %d, %Y") %>|<%= report.comment %> </li>
+        <li> <span class="created"><%= report.created_at.strftime("%b %d, %Y") %></span> | Comment: <span class="report_comment"><%= report.comment %></span> </li>
       <% end %>
     <% end %>
     </ul>

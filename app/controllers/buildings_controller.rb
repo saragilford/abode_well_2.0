@@ -8,17 +8,6 @@ class BuildingsController < ApplicationController
     @only_zips = []
     @buildings = Building.where(zip_code: params[:zip_code])
       @buildings.each do |building|
-        if building.address.only_numbers == params[:address].only_numbers
-          @only_zips << building
-        end
-      end
-    return @only_zips
-  end
-
-  def search
-    @only_zips = []
-    @buildings = Building.where(zip_code: params[:zip_code])
-      @buildings.each do |building|
         if building.only_numbers == params[:address].gsub(/\s.+/,"")
           @only_zips << building
         end
@@ -36,13 +25,14 @@ class BuildingsController < ApplicationController
   end
 
   def show
-    @building=Building.find(params[:id])
-    @score=@building.badge_score
-  # had a merge conflict here:  does it still work?
+    @building = Building.find(params[:id])
+    @score = @building.badge_score
+
 
     @report_categories = ["Select...", "LeaseIncrease", "MaintenenceIssue", "EvictionNotice", "OtherHarassment"]
 
     @letter_options = ["Ellis Act", "Landlord Move-In", "Condo Conversion"]
+
     @building = Building.where(id: params[:id]).first
 
     @reports_array = []

@@ -1,17 +1,27 @@
 $(document).ready(function() {
 
-$('.harassment-form').on('submit', function(event){
+$('.harassment-form form').on('submit', function(event){
     event.preventDefault();
-    debugger
+
+
+    $('.harassment-form').css({"visibility":"hidden"});
+    console.log(this);
+
     request = $.ajax({
-      url: 'http://localhost:3000/report',
-      method: "post",
+      url: $(this).attr('action'),
+      type: 'POST',
       data: $(this).serialize(),
-      dataType: 'json'
+      dataType: 'json',
     });
     request.done(function(data){
        console.log(data)
-       // where do we send this data?
+
+       var newHarass = $('.recent-reports-container ul li:first').clone()
+       newHarass.appendTo('.recent-reports-container ul')
+       newHarass.find('.created')
+          .text(data.created_at).end()
+          .find('.report_comment')
+          .text(data.comment).end()
 
 
     });

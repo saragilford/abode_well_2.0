@@ -1,17 +1,27 @@
 $(document).ready(function() {
 
-$('.lease-increase-form').on('submit', function(event){
+$('.lease-increase-form form').on('submit', function(event){
     event.preventDefault();
-    debugger
+
+
+    $('.lease-increase-form').css({"visibility":"hidden"});
+    console.log(this);
+
     request = $.ajax({
-      url: 'http://localhost:3000/report',
-      method: "post",
+      url: $(this).attr('action'),
+      type: 'POST',
       data: $(this).serialize(),
-      dataType: 'json'
+      dataType: 'json',
     });
     request.done(function(data){
        console.log(data)
-       // where do we send this data?
+
+       var newRent = $('.recent-reports-container ul li:first').clone()
+       newRent.appendTo('.recent-reports-container ul')
+       newRent.find('.created')
+          .text(data.created_at).end()
+          .find('.report_comment')
+          .text(data.comment).end()
 
 
     });
@@ -19,4 +29,9 @@ $('.lease-increase-form').on('submit', function(event){
 
 
 });
+
+
+
+
+
 
