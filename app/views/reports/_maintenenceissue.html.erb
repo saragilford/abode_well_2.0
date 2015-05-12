@@ -1,7 +1,7 @@
 
 <div class="maint-issue-form MaintenenceIssue">
 
-  <form action="/maintenenceissue" method="POST">
+  <form action="/buildings/<%=@building.id%>/fix_orders" method="POST">
     <label>Maintenence Issue:</label>
     <input type="text" name="description" placeholder="Describe Issue">
     <label># of Days Unresolved:</label>
