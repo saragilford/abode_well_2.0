@@ -5,15 +5,25 @@ class BuildingsController < ApplicationController
   end
 
   def search
-    @only_zips = []
-    @buildings = Building.where(zip_code: params[:zip_code])
-      @buildings.each do |building|
-        if building.only_numbers == params[:address].gsub(/\s.+/,"")
-          @only_zips << building
-        end
-      end
-    return @only_zips
+    @search = Search.new(params[:search])
+
+
   end
+
+
+
+
+# old search function (that works)
+  # def search
+  #   @only_zips = []
+  #   @buildings = Building.where(zip_code: params[:zip_code])
+  #     @buildings.each do |building|
+  #       if building.only_numbers == params[:address].gsub(/\s.+/,"")
+  #         @only_zips << building
+  #       end
+  #     end
+  #   return @only_zips
+  # end
   
   def new
 
