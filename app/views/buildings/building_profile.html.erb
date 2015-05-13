@@ -1,6 +1,6 @@
 <div class="container debug">
   <!-- Top row -->
-  <div class="row debug">
+  <div class="row prof-row debug">
 <!-- Quadrant 1 -->
     <div class="col-xs-12 col-md-6 debug">
 
@@ -41,10 +41,10 @@
   </div>
   <!-- End of top row -->
   <!-- beginning of bottom row -->
-  <div class="row debug">
+  <div class="row prof-row debug">
 
     <!-- Quadrant 4 -->
-    <div class="col-xs-12 col-md-9 debug">
+    <div class="col-xs-12 col-md-8 debug">
       <h2>Recent Reports</h2>
       <% if @reports_array.length > 0 %>
         <% @reports_array.each do |report| %>
@@ -57,8 +57,8 @@
     <!-- End Quadrant 4 -->
 
     <!-- Quadrant 3 -->
-    <div class="col-xs-12 col-md-3 debug">
-      <button id="report-button">Report On Your Building</button>
+    <div class="col-xs-12 col-md-4 debug">
+      <button class="btn" id="report-button">Report On Your Building</button>
     </div>
     <!-- End Quadrant 3 -->
 
