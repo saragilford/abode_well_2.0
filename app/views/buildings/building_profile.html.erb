@@ -7,8 +7,8 @@
      </div>
 
      <div class="building-summary">
-      <h3>Building Summary:</h3>
-      <ul>
+      <h3>Building Summary</h3>
+        <div
         <%if @building.ellis%>
           <p>Tenants were evicted at this building under the Ellis Act.</p>
         <%elsif @building.move_in%>
@@ -16,6 +16,7 @@
         <%elsif @building.condo_conv%>
           <p>Tenants were evicted at this building because the building was converted into condos.</p>
         <%end%>
+      <ul>
         <li>Harassment Complaints: <%=@building.harassments.count %></li>
         <li>Maintenence Issues: <%=@building.fix_orders.count %></li>
         <li>Eviction Notices: <%=@building.eviction_notices.count %></li>
