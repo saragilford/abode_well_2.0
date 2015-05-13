@@ -12,7 +12,7 @@ class BuildingsController < ApplicationController
           @only_zips << building
         end
       end
-    return @only_zips
+    render 
   end
 
   def new
@@ -48,7 +48,7 @@ class BuildingsController < ApplicationController
       @reports_array << report
     end
 
-    @building.rent_notices.each do |report|
+  @building.rent_notices.each do |report|
       @reports_array << report
     end
 
@@ -57,7 +57,7 @@ class BuildingsController < ApplicationController
   @reports_array = @reports_array.first(10)
 
     render :"buildings/building_profile"
-    # render json:  @building
-  end
+    render json:  @search
+    end
 
 end

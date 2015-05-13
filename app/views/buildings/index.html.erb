@@ -14,7 +14,7 @@
   </div> <!-- end nav-bar -->
 
   <div class="search-and-report-container">
-    <%= form_tag("/buildings/search", method: "GET") do %>
+    <%= form_tag("/searches/", method: :post) do %>
       <%= label_tag(:address, "Address:")%>
         <%= text_field_tag(:address)%>
       <%= label_tag(:zip_code, "Zip Code:")%>
@@ -22,7 +22,7 @@
       <%= submit_tag("Search")  %>
     <% end %>
   </div>
-  
+
 </div>
 
 
