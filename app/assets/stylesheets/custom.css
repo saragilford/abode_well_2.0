@@ -1,6 +1,6 @@
-/*.debug {
+.debug {
   border: 1px solid red;
-}*/
+}
 
 .navbar-default .navbar-brand {
   padding: 15px 150px;
@@ -21,12 +21,20 @@ body {
   padding-top: 50px;
 }
 
-/*.address {
-  position: absolute;
-}*/
+.address {
+  font-size: 3em;
+  margin-top: 8px;
+}
 
 .building-summary {
-  padding-top: 100px;
+  padding-right: 150px;
+  padding-top: 50px;
+}
+
+.eviction-summary {
+  font-style: italic;
+  padding-left: 10px;
+  border: 1px gray;
 }
 
 .btn {
