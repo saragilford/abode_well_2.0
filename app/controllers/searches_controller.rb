@@ -23,7 +23,7 @@ class SearchesController < ApplicationController
 		end
 
 		# redirect_to "searches/show/#{@search.id}"
-	redirect_to "/searches"
+	redirect_to "/searches/#{@search.address}"
 
 	end
 
