@@ -4,7 +4,7 @@
   </div>
 
   <div class="search-and-report-container abode-well-hero-container">
-    <%= form_tag("/buildings/search", method: "GET", class: "abode-well-hero-form") do %>
+    <%= form_tag("/searches/", method: :post, class: "abode-well-hero-form") do %>
       <%= label_tag(:address, "Address:")%>
         <%= text_field_tag(:address)%>
       <%= label_tag(:zip_code, "Zip Code:")%>
