@@ -5,7 +5,7 @@ class BuildingsController < ApplicationController
   end
 
   def search
-    @search = Search.new(params[:search])
+    render json: params[:buildings]
   end
 
 
