@@ -1,0 +1,24 @@
+.navbar-default .navbar-brand {
+  padding: 15px 150px;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.badge {
+  background-color: red;
+  font-size: 8.5em;
+  float: right;
+}
+
+/*#score {
+  color: gray;
+  }
+
+.score-box {
+  float: right;
+  background-color: red;
+  width: 10%;
+  height: 5%;
+}*/
