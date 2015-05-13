@@ -4,11 +4,6 @@ class BuildingsController < ApplicationController
     render :"buildings/index"
   end
 
-
-
-
-
-# old search function (that works)
   def search
     @only_zips = []
     @buildings = Building.where(zip_code: params[:zip_code])
@@ -17,7 +12,7 @@ class BuildingsController < ApplicationController
           @only_zips << building
         end
       end
-    return @only_zips
+    render 
   end
   
   def new
