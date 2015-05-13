@@ -49,6 +49,16 @@ body {
 .building-summary {
   padding-top: 100px;
 }
+
+
+.report-container {
+  margin-left: 50%;
+}
+
+
+
+
+
 /*#score {
   color: gray;
   }
