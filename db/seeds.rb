@@ -24,8 +24,8 @@ require 'csv'
 # create a building...
   @building = Building.new( address:Faker::Address.street_address,
                             zip_code:[90210,10011,94107,94121].sample,
-                            latitude:Faker::Code.isbn,
-                            longitude:Faker::Code.isbn,
+                            latitude:Faker::Address.latitude,
+                            longitude:Faker::Address.longitude,
                             neighborhood:["SOMA", "Mission", "Nob Hill", "Seacliff"].sample,
                             move_in:[true,false].sample,
                             condo_conv:[true,false].sample
