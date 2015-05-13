@@ -12,7 +12,7 @@ class BuildingsController < ApplicationController
           @only_zips << building
         end
       end
-    render 
+    render :results
   end
   
   def new
