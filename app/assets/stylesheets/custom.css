@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*Walker added css*/
 .debug{
   border: 1px dotted blueviolet;
@@ -16,12 +15,8 @@
 }
 
 /*****************************/
-=======
-.debug {
-  border: 1px solid red;
-}
 
->>>>>>> 9576875747597b2e3833639d63250d34cb288702
+
 .navbar-default .navbar-brand {
   padding: 15px 150px;
 }
@@ -37,32 +32,17 @@ body {
   margin-top: 10px;
 }
 
+.well {
+  width: 70%;
+}
 
-
-/*.address {
+.address {
   position: absolute;
-}*/
+}
 
 .building-summary {
   padding-top: 100px;
 }
-
-.btn {
-   padding: 14px 24px;
-   border: 0 none;
-   font-weight: 700;
-   letter-spacing: 1px;
-   text-transform: uppercase;
-   background: red;
-   color: #ffffff;
-
-}
-
-.prof-row {
-  margin-top: 50px;
-}
-
-
 /*#score {
   color: gray;
   }
