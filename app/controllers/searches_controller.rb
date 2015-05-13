@@ -15,15 +15,14 @@ class SearchesController < ApplicationController
 
 	def create
 		@search = Search.new(address:params[:address], zip_code:params[:zip_code])
+
+		# validates a saved search instance
 		if @search.save
 			# render json: @search 
-			"It worked Walker!!!"
+			redirect_to "/searches/#{@search.address}"
 		else
-			"You shall not pass!!!"
+			render :error
 		end
-
-		# redirect_to "searches/show/#{@search.id}"
-	redirect_to "/searches/#{@search.address}"
 
 	end
 
