@@ -12,7 +12,7 @@ class BuildingsController < ApplicationController
           @only_zips << building
         end
       end
-      had a merge conflict here: render results ok?
+      # had a merge conflict here: render results ok?
     render :results
   end
 
