@@ -1,8 +1,9 @@
-/*Walker added css*/
-.debug{
-  border: 1px dotted blueviolet;
-
+/*.debug {
+  border: 1px solid red;
 }
+*/
+/*Walker added css*/
+
 
 /*debug for the abou_elements here*/
 .about_elements {
@@ -17,7 +18,7 @@
 }
 
 .results_table{
-  
+
 }
 
 /*****************************/
@@ -31,6 +32,10 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+#map-canvas {
+  height: 400px;
+}
+
 .badge {
   background-color: red;
   font-size: 8.5em;
@@ -38,18 +43,35 @@ body {
   margin-top: 10px;
 }
 
-.well {
-  width: 70%;
+
+.report-button-container {
+  padding-top: 50px;
 }
 
 .address {
-  position: absolute;
-}
+  font-size: 3em;
+  margin-top: 8px;
 
 .building-summary {
-  padding-top: 100px;
+  padding-right: 150px;
+  padding-top: 50px;
 }
 
+.eviction-summary {
+  font-style: italic;
+  padding-left: 10px;
+  border: 1px gray;
+}
+
+.btn {
+   padding: 14px 24px;
+   border: 0 none;
+   font-weight: 700;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   background: red;
+   color: #ffffff;
+   font-size: 2.3em;
 
 .report-container {
   margin-left: 50%;
@@ -59,14 +81,3 @@ body {
 
 
 
-/*#score {
-  color: gray;
-  }
-
-.score-box {
-  float: right;
-  background-color: red;
-  width: 10%;
-  height: 5%;
-}
-}*/
