@@ -1,18 +1,65 @@
+<div class="container debug">
+  <div class="row debug">
+    <div class="col-xs-12 col-md-6 debug">
+      <h1 class="address"><%= @building.address %></h1>
+      <div class="score-box">
+         <span class="badge"><%=@building.badge_score%></span>
+     </div>
+
+     <div class="building-summary">
+      <h3>Building Summary</h3>
+        <div
+        <%if @building.ellis%>
+          <p>Tenants were evicted at this building under the Ellis Act.</p>
+        <%elsif @building.move_in%>
+          <p>Tenants were evicted at this building because the owner or his or her close relative moved in.</p>
+        <%elsif @building.condo_conv%>
+          <p>Tenants were evicted at this building because the building was converted into condos.</p>
+        <%end%>
+      <ul>
+        <li>Harassment Complaints: <%=@building.harassments.count %></li>
+        <li>Maintenence Issues: <%=@building.fix_orders.count %></li>
+        <li>Eviction Notices: <%=@building.eviction_notices.count %></li>
+        <li>Rent Increases: <%=@building.rent_notices.count %></li>
+      </ul>
+    </div>
+</div>
+    <div class="col-xs-12 col-md-6 debug">
+      <img style="width: 100%" src=<%=image_path("fake-map.png")%>>
+    </div>
+    <%= render partial: 'buildings/building_map' %>
+  </div>
+  <div class="row debug">
+    <div class="col-xs-12 col-md-9 debug">
+        <h2>Recent Reports</h2>
+        <% if @reports_array.length > 0 %>
+          <% @reports_array.each do |report| %>
+            <div class="well"> <span class="created"><%= report.created_at.strftime("%b %d, %Y") %></span> | Comment: <span class="report_comment"><%= report.comment %></span> </div>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+
+    </div>
+    <div class="col-xs-12 col-md-3 debug">
+      <button id="report-button">Report On Your Building</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
 <div class="profile-container">
-  <h1 class="address">Address: <%= @building.address %></h1>
-  <h3 class="zipcode">Zipcode: <%= @building.zip_code %></h3>
 
-  <h3>Building Summary:</h3>
-  <ul>
-    <li>GentrEvict Score:<%= @building.badge_score %></li>
-    <li># Harassments:<%=@building.harassments.count %></li>
-    <li># Maintenence Issues:<%=@building.fix_orders.count %></li>
-    <li># Eviction Notices:<%=@building.eviction_notices.count %></li>
-    <li># Rent Increases:<%=@building.rent_notices.count %></li>
-    <li># Ellis Act Evictions:<%=@building.ellis_acts.count %></li>
-  </ul>
 
-<button id="report-button">Report On Your Building</button>
+
 
 <div class="report-container">
 
@@ -29,23 +76,6 @@
     <%= render partial: 'reports/evictionnotice' %>
     <%= render partial: 'reports/otherharassment' %>
 
-</div>
-
-  <div class="recent-reports-container">
-    <ul>
-    <% if @reports_array.length > 0 %>
-      <% @reports_array.each do |report| %>
-        <li> <span class="created"><%= report.created_at.strftime("%b %d, %Y") %></span> | Comment: <span class="report_comment"><%= report.comment %></span> </li>
-      <% end %>
-    <% end %>
-    </ul>
   </div>
-
-  <div class="local-map">
-    <img src=<%=image_path("fake-map.png")%>>
-
-    <!--link to full map-->
-  </div>
-
 
 </div>

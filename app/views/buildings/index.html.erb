@@ -1,20 +1,10 @@
-<div class="home-container debugger">
+<div class="home-container debugger abode-well-hero-background">
 
   <div class="hero-image debugger">
-    <img class="hero-image debugger" src=<%= image_path('Rent-Control-in-San-Francisco.jpg') %>>
   </div>
 
-  <div class="nav-bar">
-    <ul>
-      <li>Home</li>
-      <li>About</li>
-      <li>Map</li>
-      <li>Take Action!</li>
-    </ul>
-  </div> <!-- end nav-bar -->
-
-  <div class="search-and-report-container">
-    <%= form_tag("/searches/", method: :post) do %>
+  <div class="search-and-report-container abode-well-hero-container">
+    <%= form_tag("/searches/", method: :post, class: "abode-well-hero-form") do %>
       <%= label_tag(:address, "Address:")%>
         <%= text_field_tag(:address)%>
       <%= label_tag(:zip_code, "Zip Code:")%>
