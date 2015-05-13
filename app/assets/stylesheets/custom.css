@@ -10,8 +10,20 @@ body {
   background-color: red;
   font-size: 8.5em;
   float: right;
+  margin-top: 10px;
 }
 
+.well {
+  width: 70%;
+}
+
+.address {
+  position: absolute;
+}
+
+.building-summary {
+  padding-top: 100px;
+}
 /*#score {
   color: gray;
   }
