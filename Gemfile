@@ -8,6 +8,10 @@ gem 'pg'
 
 gem 'hirb'
 
+gem 'geocoder'
+
+gem 'autoprefixer-rails'
+
 gem 'activesupport', '~>4.2.0'
 gem 'activerecord', '~>4.2.0'
 

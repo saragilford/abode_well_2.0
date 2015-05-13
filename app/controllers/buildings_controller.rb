@@ -12,9 +12,10 @@ class BuildingsController < ApplicationController
           @only_zips << building
         # end
       end
+      # had a merge conflict here:  render results ok?
     render :results
   end
-  
+
   def new
 
   end
@@ -25,8 +26,8 @@ class BuildingsController < ApplicationController
   end
 
   def show
-    @building = Building.find(params[:id])
-    @score = @building.badge_score
+    # @building = Building.find(params[:id])
+    # @score = @building.badge_score
 
 
     @report_categories = ["Select...", "LeaseIncrease", "MaintenenceIssue", "EvictionNotice", "OtherHarassment"]
@@ -34,6 +35,13 @@ class BuildingsController < ApplicationController
     @letter_options = ["Ellis Act", "Landlord Move-In", "Condo Conversion"]
 
     @building = Building.where(id: params[:id]).first
+
+#begin variables to send info to the map
+    @latitude = @building.latitude
+    @longitude = @building.longitude
+    @address = @building.address
+    @neighborhood = @building.neighborhood
+# end variables to send info to the map
 
     @reports_array = []
     @building.harassments.each do |report|
@@ -57,7 +65,7 @@ class BuildingsController < ApplicationController
   @reports_array = @reports_array.first(10)
 
     render :"buildings/building_profile"
-    render json:  @search
+    # render json:  @search
     end
 
 end
