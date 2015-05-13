@@ -31,7 +31,7 @@
 
     <!-- end Quadrant 1 -->
 
-    <!-- Quadrant 2 -->
+    <!-- Quadrant 2? -->
 
     <div class="col-xs-12 col-md-6 debug">
       map
@@ -40,4 +40,30 @@
     <!-- End quadrant 2 -->
   </div>
   <!-- End of top row -->
+  <!-- beginning of bottom row -->
+  <div class="row debug">
+
+    <!-- Quadrant 4 -->
+    <div class="col-xs-12 col-md-9 debug">
+      <h2>Recent Reports</h2>
+      <% if @reports_array.length > 0 %>
+        <% @reports_array.each do |report| %>
+          <div class="well">
+            <span class="created"><%= report.created_at.strftime("%b %d, %Y") %></span> | Comment: <span class="report_comment"><%= report.comment %></span>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <!-- End Quadrant 4 -->
+
+    <!-- Quadrant 3 -->
+    <div class="col-xs-12 col-md-3 debug">
+      <button id="report-button">Report On Your Building</button>
+    </div>
+    <!-- End Quadrant 3 -->
+
+
+  </div>
+  <!-- End of bottom row -->
 </div>
+<!-- End containter -->
