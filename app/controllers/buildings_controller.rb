@@ -25,8 +25,8 @@ class BuildingsController < ApplicationController
   end
 
   def show
-    @building = Building.find(params[:id])
-    @score = @building.badge_score
+    # @building = Building.find(params[:id])
+    # @score = @building.badge_score
 
 
     @report_categories = ["Select...", "LeaseIncrease", "MaintenenceIssue", "EvictionNotice", "OtherHarassment"]
@@ -34,6 +34,13 @@ class BuildingsController < ApplicationController
     @letter_options = ["Ellis Act", "Landlord Move-In", "Condo Conversion"]
 
     @building = Building.where(id: params[:id]).first
+
+#begin variables to send info to the map
+    @latitude = @building.latitude
+    @longitude = @building.longitude
+    @address = @building.address
+    @neighborhood = @building.neighborhood
+# end variables to send info to the map
 
     @reports_array = []
     @building.harassments.each do |report|
