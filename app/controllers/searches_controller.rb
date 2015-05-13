@@ -1,6 +1,5 @@
 class SearchesController < ApplicationController
 
-
  	def index
     # render :"buildings/building_profile"
     
@@ -15,26 +14,16 @@ class SearchesController < ApplicationController
 	def create
 		@search = Search.new(address:params[:address], zip_code:params[:zip_code])
 
-	# holding pen for results array
-	# 	@buildings_matching_zips = []
-	# # generate a collection of matching buildings
- #    @buildings = Building.where(zip_code: @search.zip_code)
- #      @buildings.each do |building|
- #        if building.only_numbers == @search.address.gsub(/\s.+/,"")
- #          @buildings_matching_zips << building
- #        end
- #      end
- #    # return @buildings_matching_zips
 
 		# validates a saved search instance
-		# if @search.save
+		if @search.save
 			# render json: @search 
-
-			redirect_to buildings_search_path :buildings => "try more shit"
+# byebug
+			redirect_to buildings_search_path :address => @search.address, zip_code: @search.zip_code
 			# @buildings_matching_zips
 		# else
 		# 	render :error
-		# end
+		end
 
 	end
 

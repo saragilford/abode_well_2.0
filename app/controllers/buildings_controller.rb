@@ -4,25 +4,21 @@ class BuildingsController < ApplicationController
     render :"buildings/index"
   end
 
-  def search
-    p "*" *100
-    p params[:building]
-  end
 
 
 
 
 # old search function (that works)
-  # def search
-  #   @only_zips = []
-  #   @buildings = Building.where(zip_code: params[:zip_code])
-  #     @buildings.each do |building|
-  #       if building.only_numbers == params[:address].gsub(/\s.+/,"")
-  #         @only_zips << building
-  #       end
-  #     end
-  #   return @only_zips
-  # end
+  def search
+    @only_zips = []
+    @buildings = Building.where(zip_code: params[:zip_code])
+      @buildings.each do |building|
+        if building.only_numbers == params[:address].gsub(/\s.+/,"")
+          @only_zips << building
+        end
+      end
+    return @only_zips
+  end
   
   def new
 
