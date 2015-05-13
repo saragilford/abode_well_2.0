@@ -2,6 +2,28 @@
   border: 1px solid red;
 }
 */
+/*Walker added css*/
+
+
+/*debug for the abou_elements here*/
+.about_elements {
+  min-height: 100px;
+  margin:05.3m;
+}
+.about_box {
+
+}
+.search_box{
+
+}
+
+.results_table{
+
+}
+
+/*****************************/
+
+
 .navbar-default .navbar-brand {
   padding: 15px 150px;
 }
@@ -21,6 +43,7 @@ body {
   margin-top: 10px;
 }
 
+
 .report-button-container {
   padding-top: 50px;
 }
@@ -28,7 +51,6 @@ body {
 .address {
   font-size: 3em;
   margin-top: 8px;
-}
 
 .building-summary {
   padding-right: 150px;
@@ -50,20 +72,12 @@ body {
    background: red;
    color: #ffffff;
    font-size: 2.3em;
+
+.report-container {
+  margin-left: 50%;
 }
 
-.prof-row {
-  margin-top: 50px;
-}
 
 
-/*#score {
-  color: gray;
-  }
 
-.score-box {
-  float: right;
-  background-color: red;
-  width: 10%;
-  height: 5%;
-}*/
+
