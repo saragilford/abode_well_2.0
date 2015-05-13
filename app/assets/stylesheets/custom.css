@@ -10,9 +10,11 @@
   min-height: 100px;
   margin:05.3m;
 }
+
 .about_box {
 
 }
+
 .search_box{
 
 }
@@ -51,6 +53,7 @@ body {
 .address {
   font-size: 3em;
   margin-top: 8px;
+}
 
 .building-summary {
   padding-right: 150px;
