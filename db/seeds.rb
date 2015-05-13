@@ -9,15 +9,15 @@
 require 'faker'
 require 'csv'
 
-Building.delete_all
-EllisAct.delete_all
-Harassment.delete_all
-FixOrder.delete_all
-RentNotice.delete_all
-EvictionNotice.delete_all
+# Building.delete_all
+# EllisAct.delete_all
+# Harassment.delete_all
+# FixOrder.delete_all
+# RentNotice.delete_all
+# EvictionNotice.delete_all
 
 
-Building.import!
+# Building.import!
 
 50.times do
 

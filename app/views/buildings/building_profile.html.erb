@@ -6,6 +6,7 @@
          <span class="badge"><%=@building.badge_score%></span>
      </div>
 
+     <div class="building-summary">
       <h3>Building Summary:</h3>
       <ul>
         <%if @building.ellis%>
@@ -21,16 +22,26 @@
         <li>Rent Increases: <%=@building.rent_notices.count %></li>
       </ul>
     </div>
+</div>
     <div class="col-xs-12 col-md-6 debug">
-      google map
+      <img style="width: 100%" src=<%=image_path("fake-map.png")%>>
     </div>
   </div>
   <div class="row debug">
     <div class="col-xs-12 col-md-9 debug">
-      comments
+        <h2>Recent Reports</h2>
+        <% if @reports_array.length > 0 %>
+          <% @reports_array.each do |report| %>
+            <div class="well"> <span class="created"><%= report.created_at.strftime("%b %d, %Y") %></span> | Comment: <span class="report_comment"><%= report.comment %></span> </div>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+
     </div>
     <div class="col-xs-12 col-md-3 debug">
-      google map
+      <button id="report-button">Report On Your Building</button>
     </div>
   </div>
 </div>
@@ -46,7 +57,7 @@
 <div class="profile-container">
 
 
-<button id="report-button">Report On Your Building</button>
+
 
 <div class="report-container">
 
@@ -63,23 +74,6 @@
     <%= render partial: 'reports/evictionnotice' %>
     <%= render partial: 'reports/otherharassment' %>
 
-</div>
-
-  <div class="recent-reports-container">
-    <ul>
-    <% if @reports_array.length > 0 %>
-      <% @reports_array.each do |report| %>
-        <li> <span class="created"><%= report.created_at.strftime("%b %d, %Y") %></span> | Comment: <span class="report_comment"><%= report.comment %></span> </li>
-      <% end %>
-    <% end %>
-    </ul>
   </div>
-
-  <div class="local-map">
-    <img src=<%=image_path("fake-map.png")%>>
-
-    <!--link to full map-->
-  </div>
-
 
 </div>
