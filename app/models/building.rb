@@ -112,7 +112,7 @@ class Building < ActiveRecord::Base
   #reduces to numbers exlusively
   def only_numbers
     @address = self.address
-    return @address.gsub(/\s.+/,"")
+    return @address.to_s.gsub(/\D/,"")
   end
 
   # algorithm
