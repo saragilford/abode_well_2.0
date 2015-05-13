@@ -1,7 +1,13 @@
 /*Walker added css*/
 .debug{
   border: 1px dotted blueviolet;
-  width: 100%;
+
+}
+
+/*debug for the abou_elements here*/
+.about_elements {
+  min-height: 100px;
+  margin:05.3m;
 }
 .about_box {
 
