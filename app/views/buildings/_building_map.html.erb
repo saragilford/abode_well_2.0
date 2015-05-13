@@ -8,8 +8,8 @@
   <head>
     <style>
       html, body, #map-canvas {
-        width: 500px;
-        height: 400px;
+        width: 580px;
+        height: 237px;
       }
 
     </style>
@@ -71,7 +71,7 @@ function initialize() {
   // their parent base map.
   map.overlayMapTypes.insertAt(
       0, new CoordMapType(new google.maps.Size(256, 256)));
-  buildingInfo = '<h1>'+ address +'</h1>' +
+  buildingInfo = '<h3>'+ address +'</h3>' +
   '<p>Neighborhood: '+ neighborhood+'</p>'
 
   var infowindow = new google.maps.InfoWindow({
