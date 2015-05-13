@@ -8,9 +8,9 @@ class BuildingsController < ApplicationController
     @only_zips = []
     @buildings = Building.where(zip_code: params[:zip_code])
       @buildings.each do |building|
-        if building.only_numbers == params[:address].gsub(/\s.+/,"")
+        # if building.only_numbers == params[:address].gsub(/\s.+/,"")
           @only_zips << building
-        end
+        # end
       end
     render :results
   end
