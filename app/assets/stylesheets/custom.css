@@ -1,3 +1,19 @@
+/*Walker added css*/
+.debug{
+  border: 1px dotted blueviolet;
+}
+.about_box {
+
+}
+.search_box{
+
+}
+
+.results_table{
+  
+}
+
+/*****************************/
 .navbar-default .navbar-brand {
   padding: 15px 150px;
 }
@@ -33,4 +49,4 @@ body {
   background-color: red;
   width: 10%;
   height: 5%;
-}*/
+}
