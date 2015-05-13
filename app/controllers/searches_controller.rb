@@ -13,7 +13,7 @@ class SearchesController < ApplicationController
 	end
 
 	def create
-		@search = Search.new(params[:address], params[:zip_code])
+		@search = Search.new(address:params[:address], zip_code:params[:zip_code])
 		render json: @search 
 	end
 
