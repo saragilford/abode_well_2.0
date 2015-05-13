@@ -1,0 +1,11 @@
+for bottom of homepage
+
+
+  <div class="about-report">
+    <div class="about-container">
+      <%= render partial: 'searches/about' %>
+    </div>
+    <div class="results-container">
+      <%= render partial: 'searches/results' %>
+    </div>
+  </div>
