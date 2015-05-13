@@ -14,7 +14,7 @@ class BuildingsController < ApplicationController
       end
     render 
   end
-  
+
   def new
 
   end

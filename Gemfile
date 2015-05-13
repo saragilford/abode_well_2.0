@@ -8,6 +8,11 @@ gem 'pg'
 
 gem 'hirb'
 
+gem 'geocoder'
+
+gem 'bootstrap-sass', '~> 3.3.4.1'
+gem 'autoprefixer-rails'
+
 gem 'activesupport', '~>4.2.0'
 gem 'activerecord', '~>4.2.0'
 
