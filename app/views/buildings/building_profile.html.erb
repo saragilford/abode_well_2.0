@@ -27,10 +27,16 @@
   </div>
   <div class="row debug">
     <div class="col-xs-12 col-md-9 debug">
-      comments
+      <%=@reports_array.each do |report|%>
+        <div class="well">
+          <p><%=report.comment%></p>
+        </div>
+      <%end%>
+    </div>
+
     </div>
     <div class="col-xs-12 col-md-3 debug">
-      google map
+      <button id="report-button">Report On Your Building</button>
     </div>
   </div>
 </div>
@@ -46,7 +52,7 @@
 <div class="profile-container">
 
 
-<button id="report-button">Report On Your Building</button>
+
 
 <div class="report-container">
 
