@@ -1,13 +1,17 @@
-.debug {
+/*.debug {
   border: 1px solid red;
 }
-
+*/
 .navbar-default .navbar-brand {
   padding: 15px 150px;
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
+}
+
+#map-canvas {
+  height: 400px;
 }
 
 .badge {

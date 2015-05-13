@@ -34,10 +34,11 @@
 
     <!-- end Quadrant 1 -->
 
-    <!-- Quadrant 2? -->
+    <!-- Quadrant 2 -->
+
 
     <div class="col-xs-12 col-md-6 debug">
-      map
+      <div id="map-canvas"></div>
     </div>
 
     <!-- End quadrant 2 -->
@@ -74,7 +75,7 @@
       $(document).ready(function (){
         $("#report-button").click(function (){
           $('html, body').animate({
-            scrollTop: $("#report-row").offset().top
+            scrollTop: $(".report-container").offset().top
               }, 2000);
         });
     });
@@ -100,3 +101,5 @@
   <!-- end of third row -->
 </div>
 <!-- End containter -->
+
+    <%= render partial: 'buildings/building_map' %>
