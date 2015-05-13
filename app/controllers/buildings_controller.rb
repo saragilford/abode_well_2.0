@@ -5,7 +5,8 @@ class BuildingsController < ApplicationController
   end
 
   def search
-    render json: params[:buildings]
+    p "*" *100
+    p params[:building]
   end
 
 

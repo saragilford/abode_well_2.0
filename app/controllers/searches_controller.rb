@@ -27,12 +27,14 @@ class SearchesController < ApplicationController
  #    # return @buildings_matching_zips
 
 		# validates a saved search instance
-		if @search.save
+		# if @search.save
 			# render json: @search 
-			redirect_to buildings_search_path, buildings: @buildings_matching_zips
-		else
-			render :error
-		end
+
+			redirect_to buildings_search_path :buildings => "try more shit"
+			# @buildings_matching_zips
+		# else
+		# 	render :error
+		# end
 
 	end
 
