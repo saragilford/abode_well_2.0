@@ -4,7 +4,7 @@ $('.maint-issue-form form').on('submit', function(event){
     event.preventDefault();
 
 
-    $('.maint-issue').css({"visibility":"hidden"});
+    $('.maint-issue').css({"display":"none"});
     console.log(this);
 
     request = $.ajax({

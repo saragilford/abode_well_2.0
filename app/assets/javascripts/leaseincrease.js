@@ -4,7 +4,7 @@ $('.lease-increase-form form').on('submit', function(event){
     event.preventDefault();
 
 
-    $('.lease-increase-form').css({"visibility":"hidden"});
+    $('.lease-increase-form').css({"display":"none"});
     console.log(this);
 
     request = $.ajax({
