@@ -10,6 +10,8 @@ gem 'hirb'
 
 gem 'geocoder'
 
+gem 'jquery-turbolinks'
+
 gem 'autoprefixer-rails'
 
 gem 'activesupport', '~>4.2.0'
