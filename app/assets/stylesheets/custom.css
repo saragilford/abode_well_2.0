@@ -6,6 +6,10 @@
 
 /*style results table*/
 
+.results-middle {
+  text-align: center;
+}
+
 .results_matching{
   margin-bottom: 5em;
 }
@@ -13,8 +17,6 @@
 .results-page {
   padding: 1em;
 }
-
-
 
 /*********/
 
@@ -146,7 +148,10 @@ body {
 
 .results_table {
   width: 100%;
+  border-radius: 40px;
   background-color: white;
+  opacity: .75;
+  font-size: 1.5em;
 }
 
 .results_table table, th, td {
