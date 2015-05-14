@@ -4,6 +4,10 @@
   /*border: 1px dotted blueviolet;*/
 }
 
+#main_headline {
+  padding:0.5em;
+}
+
 /*debug for the abou_elements here*/
 .about_elements {
   padding: 1em;
