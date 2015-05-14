@@ -1,10 +1,26 @@
-/*.debug {
-  border: 1px solid red;
-}*/
+/*.debug {*/
+  /* border: 1px solid red; */
+  /* padding-top: 3em; */
+/*}*/
 
 /*Walker added css*/
 
+/*nav-bar- Walker*/
+
+.main_logo{
+  height: 2em;
+}
+
+.navy{
+  height: 5em;
+}
+/**/
+
 /*style results table*/
+
+.results-middle {
+  text-align: center;
+}
 
 .results_matching{
   margin-bottom: 5em;
@@ -14,9 +30,10 @@
   padding: 1em;
 }
 
+.abode-well-hero-form {
+  padding-top: 15px;
+}
 
-
-/*********/
 
 .tab-content {
   height: 350px;
@@ -71,16 +88,17 @@
 
 #main_headline {
   padding:0.5em;
+  text-align: center;
 }
 
 /*debug for the abou_elements here*/
 .about_elements {
   padding: 1em;
-  color: grey;
+  color: gray;
 }
 
 .media-heading {
-  color:black;
+  color:red;
 }
 
 span.scoop{
@@ -91,21 +109,32 @@ span.scoop{
 
 span.about_glyph  {
     font-size: 2em;
+    color: red;
 }
 
 #tagline{
   font-weight: bolder;
   color: red;
 }
+/*newer stuff*/
 
+
+.new_nav {
+  padding: 1em 0 1em 0;
+}
+
+new_nav_button{
+  color:grey;
+}
 /*****************************/
 
 .navbar-default .navbar-brand {
-  padding: 15px 150px;
+  /* padding: 15px 150px; */
 }
 
 .navbar {
   margin-bottom: 0px!important;
+  width: 100%
 }
 
 body {
@@ -122,7 +151,6 @@ body {
   float: right;
   margin-top: 10px;
 }
-
 
 .report-button-container {
   padding-top: 50px;
@@ -146,7 +174,10 @@ body {
 
 .results_table {
   width: 100%;
+  border-radius: 40px;
   background-color: white;
+  opacity: .75;
+  font-size: 1.5em;
 }
 
 .results_table table, th, td {

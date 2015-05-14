@@ -6,7 +6,7 @@
 
 
         <div class="score-box">
-          <span class="badge"><%=@building.badge_score%></span>
+          <span class="badge" id="score-badge"><%=@building.badge_score%></span>
         </div>
         <h1 class="address"><%= @building.address %></h1>
 
@@ -48,6 +48,7 @@
   <div class="row prof-row debug" id="report-row">
 
     <!-- Quadrant 4 -->
+
     <div class="col-xs-12 col-md-6 debug">
           <h2>Recent Reports</h2>
           <% if @reports_array.length > 0 %>

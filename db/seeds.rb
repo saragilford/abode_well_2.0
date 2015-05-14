@@ -16,17 +16,14 @@ FixOrder.delete_all
 RentNotice.delete_all
 EvictionNotice.delete_all
 
-
-Building.import!
-
-100.times do
+25.times do
 
 # create a building...
   @building = Building.new( address:Faker::Address.street_address,
                             zip_code:[90210,10011,94107,94121].sample,
                             latitude:Faker::Address.latitude,
                             longitude:Faker::Address.longitude,
-                            neighborhood:["Mission","Seacliff"].sample,
+                            neighborhood:["Outer Mission"].sample,
                             move_in:[true,false].sample,
                             condo_conv:[true,false].sample
                             )
@@ -72,3 +69,5 @@ Building.import!
   @evict.save
 
 end
+
+  Building.import!
