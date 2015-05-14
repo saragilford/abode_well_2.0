@@ -1,7 +1,6 @@
 <div class="results-page ghost-image">
 	<h1>	Matching Addresses </h1>
-
-
+<%=params  %>
 	<table class="results_table">
 	  <tr>
 	    <th>Address:</th>
@@ -13,7 +12,8 @@
 	  </tr>
 		<%@only_zips.each do |building| %>
 		  <tr>
-		    <td><%=building.address%></td>
+		  <!-- @address= building.zip_code -->
+			  <td><%=link_to building.address, building_path(building) %></td>
 		    <td><%=building.zip_code%></td>
 		    <td><%=building.neighborhood%></td>
 		    <td><%=building.move_in%></td>
