@@ -19,7 +19,7 @@ class BuildingsController < ApplicationController
 
 
     @neighbors = Building.where(neighborhood: @this_building.neighborhood)
-      
+
       # had a merge conflict here: render results ok?
     render :results
   end
@@ -74,6 +74,13 @@ class BuildingsController < ApplicationController
 
     render :"buildings/building_profile"
     # render json:  @search
+    end
+
+    def score
+      @building = Building.find(params[:id])
+      response = {:score => @building.badge_score}
+      render json: response.to_json
+
     end
 
 end
