@@ -1,10 +1,12 @@
 $(document).ready(function() {
 
-$('.evict-notice-form form').on('submit', function(event){
+$('.report-form').on('submit', function(event){
     event.preventDefault();
 
-
-    $('.evict-notice-form').css({"visibility":"hidden"});
+    $('body').animate({
+         scrollTop: $('.big-mama-nav').offset().top
+           }, 2000);
+    // $('.report-container').css({"display":"none"});
     console.log(this);
 
     request = $.ajax({
@@ -16,16 +18,32 @@ $('.evict-notice-form form').on('submit', function(event){
     request.done(function(data){
        console.log(data)
 
-       var newEvict = $('.recent-reports-container ul li:first').clone()
-       newEvict.appendTo('.recent-reports-container ul')
+       var newEvict = $('.recent-reports-comments div').first().clone()
+       newEvict.prependTo('.recent-reports-comments');
        newEvict.find('.created')
           .text(data.created_at).end()
           .find('.report_comment')
           .text(data.comment).end()
 
 
+      var scoreRequest = $.ajax({
+        url: "http://localhost:3000/buildings/" + data.building_id + "/score",
+        type: 'get',
+        dataType: 'json',
+      });
+      scoreRequest.done(function(data){
+        $('#score-badge').text(data.score)
+      });
+
+
     });
+
+
+
+
   });
+
+
 
 
 });
