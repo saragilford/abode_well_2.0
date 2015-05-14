@@ -6,21 +6,17 @@
 
 /*debug for the abou_elements here*/
 .about_elements {
-  /*min-height: 100px;*/
-  /*margin:05.3m;*/
   padding: 1em;
   color: grey;
-  /* border: 1px solid; */
 }
 .media-heading {
   color:black;
-  font-size: 2em;
 }
 
 span.scoop{
   font-weight: bolder;
   font-size: 1.1em;
-  color: black;
+  color: orangered;
 }
 
 span.about_glyph  {
