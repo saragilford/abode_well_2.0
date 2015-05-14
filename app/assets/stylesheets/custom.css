@@ -4,7 +4,6 @@
 */
 /*Walker added css*/
 
-
 .results-page {
   padding: 1em;
 }
@@ -24,12 +23,14 @@
   background-size: cover;
   background-position: center;
   height: 94.7vh;
-}
+
 
 /*debug for the abou_elements here*/
 .about_elements {
-  min-height: 100px;
-  margin:05.3m;
+  /*min-height: 100px;*/
+  /*margin:05.3m;*/
+  padding: 1em;
+  /* border: 1px solid; */
 }
 
 .about_box {
@@ -39,6 +40,12 @@
 .search_box{
 
 }
+
+span.about_glyph  {
+    font-size: 2em;
+}
+
+/*****************************/
 
 .navbar-default .navbar-brand {
   padding: 15px 150px;
