@@ -8,7 +8,7 @@
 /*nav-bar- Walker*/
 
 .main_logo{
-  height: 5em;
+  height: 2em;
 }
 
 .navy{
@@ -85,6 +85,7 @@
 
 #main_headline {
   padding:0.5em;
+  text-align: center;
 }
 
 /*debug for the abou_elements here*/
@@ -94,7 +95,7 @@
 }
 
 .media-heading {
-  color:black;
+  color:red;
 }
 
 span.scoop{
@@ -105,6 +106,7 @@ span.scoop{
 
 span.about_glyph  {
     font-size: 2em;
+    color: red;
 }
 
 #tagline{
@@ -136,7 +138,6 @@ body {
   float: right;
   margin-top: 10px;
 }
-
 
 .report-button-container {
   padding-top: 50px;
