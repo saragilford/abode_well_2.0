@@ -1,0 +1,46 @@
+<div class="results-page ghost-image">
+	<div class="results_matching">
+		<h1 class="results_title">	Matching Addresses </h1>
+		<table class="results_table">
+		  <tr>
+		    <th>Address:</th>
+		    <th class="results-middle">Zip:</th>
+		    <th class="results-middle">Neighborhood:</th>
+		  </tr>
+			<%@only_zips.each do |building| %>
+			  <tr>
+				  <!-- @address= building.zip_code -->
+				  <td><%=link_to building.address, building_path(building) %></td>
+			    <td class="results-middle"><%=building.zip_code%></td>
+			    <td class="results-middle"><%=building.neighborhood%></td>
+			  </tr>
+			<% end %>
+		</table>
+	</div>
+
+	<div class="results_matching">
+		<h1 class="results_title">	More homes in this neighborhood </h1>
+		<table class="results_table">
+		  <tr>
+		    <th>Address:</th>
+		    <th class="results-middle">Zip:</th>
+		    <th class="results-middle">Neighborhood:</th>
+		  </tr>
+		  <!-- grab the a set number of examples -->
+			<%@new =@neighbors.sample(15)  %>
+
+
+			<%@new.each do |building| %>
+			  <tr>
+			  <!-- @address= building.zip_code -->
+				  <td><%=link_to building.address, building_path(building) %></td>
+			    <td class="results-middle"><%=building.zip_code%></td>
+			    <td class="results-middle"><%=building.neighborhood%></td>
+			  </tr>
+			<% end %>
+		</table>
+	</div>
+
+</div>
+
+

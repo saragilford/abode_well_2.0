@@ -1,16 +1,25 @@
 
-<div class="maint-issue-form MaintenenceIssue">
+<div class="fix-form">
 
-  <form action="/maintenenceissue" method="POST">
-    <label>Maintenence Issue:</label>
-    <input type="text" name="description" placeholder="Describe Issue">
-    <label># of Days Unresolved:</label>
-    <input type="integer" name="days_unresolved">
-    <label>Comment:</label>
-    <textarea cols="40" rows="5" name="comment" placeholder="Provide more detail..."></textarea>
-    <input type="submit" value="Submit Report">
+
+  <form action="/buildings/<%=@building.id%>/fix_orders" method="POST">
+    <h2 class="form-group">Report Your Maintenance Issues</h2>
+    <div class="form-group">
+      <label for="issue">Maintenance Issue:</label>
+      <input type="text" name="description" class="form-control" id="issue">
+    </div>
+    <div class="form-group">
+      <label for="unresolved">Days Unresolved:</label>
+      <input type="text" name="days_unresolved" class="form-control" id="unresolved">
+    </div>
+
+    <div class="form-group">
+      <label for="evictionComment">Comment: </label>
+      <textarea class="form-control comment-box" rows="3" input type="text"  name="comment" placeholder="Provide more detail..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-default form-button form-group">Submit</button>
   </form>
-
 </div>
+
 
 

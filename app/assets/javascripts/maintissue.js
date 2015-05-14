@@ -1,17 +1,27 @@
 $(document).ready(function() {
 
-$('.maint-issue-form').on('submit', function(event){
+$('.maint-issue-form form').on('submit', function(event){
     event.preventDefault();
-    debugger
+
+
+    $('.maint-issue').css({"display":"none"});
+    console.log(this);
+
     request = $.ajax({
-      url: 'http://localhost:3000/report',
-      method: "post",
+      url: $(this).attr('action'),
+      type: 'POST',
       data: $(this).serialize(),
-      dataType: 'json'
+      dataType: 'json',
     });
     request.done(function(data){
        console.log(data)
-       // where do we send this data?
+
+       var newFixOrder = $('.recent-reports-container ul li:first').clone()
+       newFixOrder.appendTo('.recent-reports-container ul')
+       newFixOrder.find('.created')
+          .text(data.created_at).end()
+          .find('.report_comment')
+          .text(data.comment).end()
 
 
     });
@@ -19,5 +29,7 @@ $('.maint-issue-form').on('submit', function(event){
 
 
 });
+
+
 
 

@@ -1,22 +1,15 @@
 class RentNoticesController < ApplicationController
-  def index
-  end
-
-  def new
-  end
 
   def create
+    @building = Building.where(id: params[:building_id]).first
+    @rent_increase = RentNotice.new(prior_rent: params[:prior_rent], new_rent: params[:new_rent], comment: params[:comment], building_id: @building.id)
+    if @rent_increase.save
+      respond_to do |format|
+        format.json { render json: @rent_increase.to_json }
+        format.html {redirect_to building_path}
+      end
+    end
   end
 
-  def show
-  end
 
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
 end

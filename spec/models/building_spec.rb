@@ -13,7 +13,7 @@ describe "Make buildings" do
  end
  
 	it "can create a list of all buildings" do
-		expect(@buildings).to be_an(Array)
+		expect(@buildings).to be_kind_of(Array)
 	end
 end
 

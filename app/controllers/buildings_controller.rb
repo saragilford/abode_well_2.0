@@ -6,26 +6,24 @@ class BuildingsController < ApplicationController
 
   def search
     @only_zips = []
+
     @buildings = Building.where(zip_code: params[:zip_code])
       @buildings.each do |building|
-        if building.address.only_numbers == params[:address].only_numbers
+        if building.only_numbers == params[:address].gsub(/\D/,"")
           @only_zips << building
         end
       end
-    return @only_zips
+
+
+    @this_building = @buildings[0]
+
+
+    @neighbors = Building.where(neighborhood: @this_building.neighborhood)
+      
+      # had a merge conflict here: render results ok?
+    render :results
   end
 
-  def search
-    @only_zips = []
-    @buildings = Building.where(zip_code: params[:zip_code])
-      @buildings.each do |building|
-        if building.only_numbers == params[:address].gsub(/\s.+/,"")
-          @only_zips << building
-        end
-      end
-    return @only_zips
-  end
-  
   def new
 
   end
@@ -36,14 +34,22 @@ class BuildingsController < ApplicationController
   end
 
   def show
-    @building=Building.find(params[:id])
-    @score=@building.badge_score
-  # had a merge conflict here:  does it still work?
+    # @building = Building.find(params[:id])
+    # @score = @building.badge_score
+
 
     @report_categories = ["Select...", "LeaseIncrease", "MaintenenceIssue", "EvictionNotice", "OtherHarassment"]
 
     @letter_options = ["Ellis Act", "Landlord Move-In", "Condo Conversion"]
+
     @building = Building.where(id: params[:id]).first
+
+#begin variables to send info to the map
+    @latitude = @building.latitude
+    @longitude = @building.longitude
+    @address = @building.address
+    @neighborhood = @building.neighborhood
+# end variables to send info to the map
 
     @reports_array = []
     @building.harassments.each do |report|
@@ -58,7 +64,7 @@ class BuildingsController < ApplicationController
       @reports_array << report
     end
 
-    @building.rent_notices.each do |report|
+  @building.rent_notices.each do |report|
       @reports_array << report
     end
 
@@ -67,7 +73,7 @@ class BuildingsController < ApplicationController
   @reports_array = @reports_array.first(10)
 
     render :"buildings/building_profile"
-    # render json:  @building
-  end
+    # render json:  @search
+    end
 
 end

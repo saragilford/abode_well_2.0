@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 require 'faker'
+require 'csv'
 
 Building.delete_all
 EllisAct.delete_all
@@ -15,14 +16,14 @@ FixOrder.delete_all
 RentNotice.delete_all
 EvictionNotice.delete_all
 
-50.times do
+25.times do
 
 # create a building...
   @building = Building.new( address:Faker::Address.street_address,
                             zip_code:[90210,10011,94107,94121].sample,
-                            latitude:Faker::Code.isbn,
-                            longitude:Faker::Code.isbn,
-                            neighborhood:["SOMA", "Mission", "Nob Hill", "Seacliff"].sample,
+                            latitude:Faker::Address.latitude,
+                            longitude:Faker::Address.longitude,
+                            neighborhood:["Outer Mission"].sample,
                             move_in:[true,false].sample,
                             condo_conv:[true,false].sample
                             )
@@ -68,3 +69,5 @@ EvictionNotice.delete_all
   @evict.save
 
 end
+
+  Building.import!

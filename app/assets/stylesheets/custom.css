@@ -1,0 +1,211 @@
+.debug {
+  /* border: 1px solid red; */
+  /* padding-top: 3em; */
+}
+
+/*Walker added css*/
+
+/*nav-bar- Walker*/
+
+.main_logo{
+  height: 2em;
+}
+
+.navy{
+  height: 5em;
+}
+/**/
+
+/*style results table*/
+
+.results-middle {
+  text-align: center;
+}
+
+.results_matching{
+  margin-bottom: 5em;
+}
+
+.results-page {
+  padding: 1em;
+}
+
+/*********/
+
+.tab-content {
+  height: 350px;
+}
+
+.form-control {
+  width: 200px;
+}
+
+.form-contents {
+  margin-top: 50px;
+}
+
+.rent-amount {
+  width: 10%;
+}
+
+.report-container {
+  display: none;
+}
+
+.report-toggle a {
+  color: rgb(41, 200, 164);
+  font-size: 2em;
+}
+
+.comment-box {
+  width: 500px;
+}
+
+.results-page h1 {
+  margin: 0;
+  /*changed from #777*/
+  color: red;
+  /*text-shadow:
+   -1px -1px 0 #4E4C4F,
+    1px -1px 0 #4E4C4F,
+    -1px 1px 0 #4E4C4F,
+     1px 1px 0 #4E4C4F;*/
+}
+
+.top-row {
+  padding-top: 50px;
+}
+
+.ghost-image {
+  background: url("Rent-Control-in-San-Francisco-alt-ghost.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 94.7vh;
+}
+
+#main_headline {
+  padding:0.5em;
+  text-align: center;
+}
+
+/*debug for the abou_elements here*/
+.about_elements {
+  padding: 1em;
+  color: grey;
+}
+
+.media-heading {
+  color:red;
+}
+
+span.scoop{
+  font-weight: bolder;
+  font-size: 1.1em;
+  color: red;
+}
+
+span.about_glyph  {
+    font-size: 2em;
+    color: red;
+}
+
+#tagline{
+  font-weight: bolder;
+  color: red;
+}
+/*newer stuff*/
+
+
+.new_nav {
+  padding: 1em 0 1em 0;
+}
+
+new_nav_button{
+  color:grey;
+}
+/*****************************/
+
+.navbar-default .navbar-brand {
+  /* padding: 15px 150px; */
+}
+
+.navbar {
+  margin-bottom: 0px!important;
+  width: 100%
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#map-canvas {
+  height: 400px;
+}
+
+.badge {
+  background-color: red;
+  font-size: 8.5em;
+  float: right;
+  margin-top: 10px;
+}
+
+.report-button-container {
+  padding-top: 50px;
+}
+
+.address {
+  font-size: 3em;
+  margin-top: 8px;
+}
+
+.building-summary {
+  padding-right: 150px;
+  padding-top: 50px;
+}
+
+.eviction-summary {
+  font-style: italic;
+  padding-left: 10px;
+  border: 1px gray;
+}
+
+.results_table {
+  width: 100%;
+  border-radius: 40px;
+  background-color: white;
+  opacity: .75;
+  font-size: 1.5em;
+}
+
+.results_table table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.results_table th {
+  background-color: red;
+  color: white;
+}
+
+.results_table table {
+  border-spacing: 15px;
+}
+
+#report-button {
+   padding: 14px 24px;
+   border: 0 none;
+   font-weight: 700;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   background: red;
+   color: #ffffff;
+   font-size: 2.3em;
+ }
+
+.form-button {
+  margin-top: 10px;
+}
+
+.container {
+  padding-bottom: 100px;
+}
