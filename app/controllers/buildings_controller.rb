@@ -19,7 +19,7 @@ class BuildingsController < ApplicationController
 
 
     @neighbors = Building.where(neighborhood: @this_building.neighborhood)
-      
+
       # had a merge conflict here: render results ok?
     render :results
   end
@@ -68,12 +68,14 @@ class BuildingsController < ApplicationController
       @reports_array << report
     end
 
-  @reports_array.sort!{|a,b|a.updated_at <=> b.updated_at}
+  @reports_array.sort!{|a,b|b.updated_at <=> a.updated_at}
 
   @reports_array = @reports_array.first(10)
 
     render :"buildings/building_profile"
     # render json:  @search
     end
+
+
 
 end
