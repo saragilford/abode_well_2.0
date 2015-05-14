@@ -1,7 +1,7 @@
 
   <div class="evict-notice-form EvictionNotice">
 
-    <h2>Report Your Eviction Notice</h2>
+
 
 <!-- <form>
   <div class="form-group">
@@ -26,27 +26,24 @@
 </form> -->
 
 
-  <!--   <form class="form-horizontal" action="/buildings/<%=@building.id%>/eviction_notices" method="POST"> -->
+    <form class="form-horizontal" action="/buildings/<%=@building.id%>/eviction_notices" method="POST">
+      <h2 class="form-group">Report Your Eviction Notice</h2>
       <div class="form-group">
         <label for="typeOfLetter" class="col-med-0 control label">Type of letter:</label>
-        <div class="col-sm-1">
           <div class="letter-dropdown">
 
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-            <select name="category">
+
+            <select class="form-control" name="category">
               <% @letter_options.each do |option| %>
                 <option><%= option %> </option>
               <% end %>
             </select>
           </div>
-        </div>
       </div>
       <div class="form-group">
         <label for="evictionComment">Comment: </label>
-        <textarea class="form-control" rows="3" input type="text"  name="comment" placeholder="Provide more detail..."></textarea>
-        <div class="form-group">
-        <button type="submit" class="btn btn-default form-button">Submit</button>
-        </div>
+        <textarea class="form-control comment-box" rows="3" input type="text"  name="comment" placeholder="Provide more detail..."></textarea>
       </div>
+      <button type="submit" class="btn btn-default form-button form-group">Submit</button>
     </form>
-<!--   </div> -->
+  </div>
