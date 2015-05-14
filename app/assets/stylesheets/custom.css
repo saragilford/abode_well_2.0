@@ -1,14 +1,41 @@
 /*.debug {
   border: 1px solid red;
-}
-*/
+}*/
+
 /*Walker added css*/
 
 .results-page {
   padding: 1em;
 }
 
+.tab-content {
+  height: 350px;
+}
 
+.form-control {
+  width: 200px;
+}
+
+.form-contents {
+  margin-top: 50px;
+}
+
+.rent-amount {
+  width: 10%;
+}
+
+.report-container {
+  display: none;
+}
+
+.report-toggle a {
+  color: rgb(41, 200, 164);
+  font-size: 2em;
+}
+
+.comment-box {
+  width: 500px;
+}
 
 .results-page h1 {
   margin: 0;
@@ -18,6 +45,10 @@
     1px -1px 0 #4E4C4F,
     -1px 1px 0 #4E4C4F,
      1px 1px 0 #4E4C4F;
+}
+
+.top-row {
+  padding-top: 50px;
 }
 
 .ghost-image {
@@ -136,6 +167,6 @@ body {
   margin-top: 10px;
 }
 
-.report-container {
-  margin-left: 50%;
+.container {
+  padding-bottom: 100px;
 }
