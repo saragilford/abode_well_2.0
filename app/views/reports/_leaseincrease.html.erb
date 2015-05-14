@@ -1,8 +1,8 @@
-<div class="lease-increase-form LeaseIncrease">
+<div class="lease-increase-form">
 
     <h2>Tell Us About Your Rent Increase</h2>
 
-<form action="/buildings/<%=@building.id%>/rent_notices" method="POST">
+<form action="/buildings/<%=@building.id%>/rent_notices" method="POST" class="report-form">
         <div class="form-group">
           <label for="issue">Previous Rent:</label>
           <input type="text" name="prior_rent" class="form-control" id="issue">
