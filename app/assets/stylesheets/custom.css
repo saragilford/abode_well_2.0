@@ -4,9 +4,19 @@
 
 /*Walker added css*/
 
+/*style results table*/
+
+.results_matching{
+  margin-bottom: 5em;
+}
+
 .results-page {
   padding: 1em;
 }
+
+
+
+/*********/
 
 .tab-content {
   height: 350px;
@@ -39,12 +49,13 @@
 
 .results-page h1 {
   margin: 0;
-  color: #777;
-  text-shadow:
+  /*changed from #777*/
+  color: red;
+  /*text-shadow:
    -1px -1px 0 #4E4C4F,
     1px -1px 0 #4E4C4F,
     -1px 1px 0 #4E4C4F,
-     1px 1px 0 #4E4C4F;
+     1px 1px 0 #4E4C4F;*/
 }
 
 .top-row {
@@ -58,24 +69,33 @@
   height: 94.7vh;
 }
 
+#main_headline {
+  padding:0.5em;
+}
+
 /*debug for the abou_elements here*/
 .about_elements {
-  /*min-height: 100px;*/
-  /*margin:05.3m;*/
   padding: 1em;
-  /* border: 1px solid; */
+  color: grey;
 }
 
-.about_box {
-
+.media-heading {
+  color:black;
 }
 
-.search_box{
-
+span.scoop{
+  font-weight: bolder;
+  font-size: 1.1em;
+  color: red;
 }
 
 span.about_glyph  {
     font-size: 2em;
+}
+
+#tagline{
+  font-weight: bolder;
+  color: red;
 }
 
 /*****************************/

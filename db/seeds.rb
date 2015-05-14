@@ -9,24 +9,24 @@
 require 'faker'
 require 'csv'
 
-# Building.delete_all
-# EllisAct.delete_all
-# Harassment.delete_all
-# FixOrder.delete_all
-# RentNotice.delete_all
-# EvictionNotice.delete_all
+Building.delete_all
+EllisAct.delete_all
+Harassment.delete_all
+FixOrder.delete_all
+RentNotice.delete_all
+EvictionNotice.delete_all
 
 
-# Building.import!
+Building.import!
 
-50.times do
+100.times do
 
 # create a building...
   @building = Building.new( address:Faker::Address.street_address,
                             zip_code:[90210,10011,94107,94121].sample,
                             latitude:Faker::Address.latitude,
                             longitude:Faker::Address.longitude,
-                            neighborhood:["SOMA", "Mission", "Nob Hill", "Seacliff"].sample,
+                            neighborhood:["Mission","Seacliff"].sample,
                             move_in:[true,false].sample,
                             condo_conv:[true,false].sample
                             )

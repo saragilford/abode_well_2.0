@@ -6,12 +6,20 @@ class BuildingsController < ApplicationController
 
   def search
     @only_zips = []
+
     @buildings = Building.where(zip_code: params[:zip_code])
       @buildings.each do |building|
         if building.only_numbers == params[:address].gsub(/\D/,"")
           @only_zips << building
         end
       end
+
+
+    @this_building = @buildings[0]
+
+
+    @neighbors = Building.where(neighborhood: @this_building.neighborhood)
+      
       # had a merge conflict here: render results ok?
     render :results
   end
