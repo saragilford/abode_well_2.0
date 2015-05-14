@@ -12,18 +12,37 @@
   <link rel="stylesheet" type="text/css" href="stylesheets/custom.css">
 </head>
 <body>
-
     
 <!-- TEST area for a new nav bar -->
 
-<nav class="navbar navbar-default">
+<!-- <nav class="navbar navbar-default "> -->
+<nav class="new_nav debug">
+
   <div class="container-fluid">
 
-    <!-- Brand and toggle get grouped for better mobile display -->
-      <a class="navbar-brand" href="/">
+    <div >
+      <a  class="col-md-3 navbar_logo" href="/">
         <%= image_tag("AbodeWell_logo.png", :alt => "AbodeWell", :class => "main_logo")  %>
       </a>
+      <a class="col-md-3 new_nav_button" href="">Home</a>
+      <a class="col-md-3 new_nav_button" href="">About</a>
+      <a class="col-md-3 new_nav_button" href="">Action!</a>
 
+    </div>
+
+
+</nav>
+
+
+<%= yield %>
+
+</body>
+</html>
+
+ <!-- old nav code -->
+    <!-- Brand and toggle get grouped for better mobile display -->
+      
+<!-- 
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -32,19 +51,13 @@
         <span class="icon-bar"></span>
       </button>
 
-      <a class="navbar-brand" href="/">Home</a>
-      <a class="navbar-brand" href="#">About</a>
-      <a class="navbar-brand" href="#">Map</a>
-      <a class="navbar-brand" href="#">Action!</a>
-      
-    </div>
+      <a class="navbar-brand " href="/">Home</a>
+      <a class="navbar-brand " href="#">About</a>
+      <a class="navbar-brand " href="#">Map</a>
+
+    </div> -->
 
   <!-- .container-fluid -->
-  </div>/
+  <<!-- /div>
 
-</nav>
-
-<%= yield %>
-
-</body>
-</html>
+</nav> -->

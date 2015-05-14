@@ -113,15 +113,25 @@ span.about_glyph  {
   font-weight: bolder;
   color: red;
 }
+/*newer stuff*/
 
+
+.new_nav {
+  padding: 1em 0 1em 0;
+}
+
+new_nav_button{
+  color:red;
+}
 /*****************************/
 
 .navbar-default .navbar-brand {
-  padding: 15px 150px;
+  /* padding: 15px 150px; */
 }
 
 .navbar {
   margin-bottom: 0px!important;
+  width: 100%
 }
 
 body {
