@@ -64,27 +64,23 @@ class BuildingsController < ApplicationController
       @reports_array << report
     end
 
-  @building.rent_notices.each do |report|
+    @building.rent_notices.each do |report|
       @reports_array << report
     end
 
-  @reports_array.sort!{|a,b|b.updated_at <=> a.updated_at}
+    @reports_array.sort!{|a,b|b.updated_at <=> a.updated_at}
 
-  @reports_array = @reports_array.first(10)
+    @reports_array = @reports_array.first(10)
 
     render :"buildings/building_profile"
     # render json:  @search
     end
 
-<<<<<<< HEAD
     def score
       @building = Building.find(params[:id])
       response = {:score => @building.badge_score}
       render json: response.to_json
 
     end
-=======
-
->>>>>>> 2780a6d606e9f54c65edd5d45e0c9d41a1af4ca2
 
 end

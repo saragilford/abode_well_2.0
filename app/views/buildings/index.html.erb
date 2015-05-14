@@ -1,23 +1,5 @@
 <div class="home-container debugger ">
 
-      <div class="search-and-report-container abode-well-hero-container abode-well-hero-background">
-      </div>
-  <div class="row about_container debug ">
-    <div class="col-md-12 search_form debug">
-      <div class="abode-well-hero-form">
-        <%= form_tag("/searches/", method: :post, class: "abode-well-hero-form") do %>
-          <%= label_tag(:address, "Address:")%>
-            <%= text_field_tag(:address)%>
-          <%= label_tag(:zip_code, "Zip Code:")%>
-            <%= text_field_tag(:zip_code)%>
-          <%= submit_tag("Search Properties")  %>
-        <% end %>
-      </div>
-
-    </div>
-    
-  </div>
-<<<<<<< HEAD
   <div class="abode-well-hero-form">
 
     <form class="form-inline" action="/searches/" method="post" class="abode-well-hero-form">
@@ -34,9 +16,6 @@
   </div>
 
 <%= render "about/about" %>
-=======
-      <%= render "about/about" %>
->>>>>>> 2780a6d606e9f54c65edd5d45e0c9d41a1af4ca2
 
 </div>
 

@@ -1,7 +1,7 @@
-.debug {
+/*.debug {*/
   /* border: 1px solid red; */
   /* padding-top: 3em; */
-}
+/*}*/
 
 /*Walker added css*/
 
@@ -30,14 +30,10 @@
   padding: 1em;
 }
 
-<<<<<<< HEAD
 .abode-well-hero-form {
   padding-top: 15px;
 }
 
-=======
->>>>>>> 2780a6d606e9f54c65edd5d45e0c9d41a1af4ca2
-/*********/
 
 .tab-content {
   height: 350px;
@@ -97,7 +93,7 @@
 /*debug for the abou_elements here*/
 .about_elements {
   padding: 1em;
-  color: grey;
+  color: gray;
 }
 
 .media-heading {
