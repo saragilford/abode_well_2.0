@@ -6,7 +6,7 @@ class FixOrdersController < ApplicationController
     if @maint_issue.save
       respond_to do |format|
         format.json { render json: @maint_issue.to_json }
-        format.html {redirect_to building_path}
+        format.html {redirect_to building_path(@building)}
       end
     end
   end
