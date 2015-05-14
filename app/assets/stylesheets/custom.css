@@ -4,9 +4,19 @@
 
 /*Walker added css*/
 
+/*style results table*/
+
+.results_matching{
+  margin-bottom: 5em;
+}
+
 .results-page {
   padding: 1em;
 }
+
+
+
+/*********/
 
 .tab-content {
   height: 350px;
@@ -39,12 +49,13 @@
 
 .results-page h1 {
   margin: 0;
-  color: #777;
-  text-shadow:
+  /*changed from #777*/
+  color: red;
+  /*text-shadow:
    -1px -1px 0 #4E4C4F,
     1px -1px 0 #4E4C4F,
     -1px 1px 0 #4E4C4F,
-     1px 1px 0 #4E4C4F;
+     1px 1px 0 #4E4C4F;*/
 }
 
 .top-row {
@@ -75,7 +86,7 @@
 span.scoop{
   font-weight: bolder;
   font-size: 1.1em;
-  color: orangered;
+  color: red;
 }
 
 span.about_glyph  {
@@ -84,7 +95,7 @@ span.about_glyph  {
 
 #tagline{
   font-weight: bolder;
-  color: orangered;
+  color: red;
 }
 
 /*****************************/
@@ -144,7 +155,7 @@ body {
 }
 
 .results_table th {
-  background-color: orangered;
+  background-color: red;
   color: white;
 }
 
