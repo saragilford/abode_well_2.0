@@ -1,22 +1,23 @@
 <div class="home-container debugger ">
 
-  <!-- <div class="hero-image debugger">
+      <div class="search-and-report-container abode-well-hero-container abode-well-hero-background">
+      </div>
+  <div class="row about_container debug ">
+    <div class="col-md-12 search_form debug">
+      <div class="abode-well-hero-form">
+        <%= form_tag("/searches/", method: :post, class: "abode-well-hero-form") do %>
+          <%= label_tag(:address, "Address:")%>
+            <%= text_field_tag(:address)%>
+          <%= label_tag(:zip_code, "Zip Code:")%>
+            <%= text_field_tag(:zip_code)%>
+          <%= submit_tag("Search Properties")  %>
+        <% end %>
+      </div>
 
-  </div> -->
-
-  <div class="search-and-report-container abode-well-hero-container abode-well-hero-background">
+    </div>
+    
   </div>
-  <div class="abode-well-hero-form">
-    <%= form_tag("/searches/", method: :post, class: "abode-well-hero-form") do %>
-      <%= label_tag(:address, "Address:")%>
-        <%= text_field_tag(:address)%>
-      <%= label_tag(:zip_code, "Zip Code:")%>
-        <%= text_field_tag(:zip_code)%>
-      <%= submit_tag("Search Properties")  %>
-    <% end %>
-  </div>
-
-<%= render "about/about" %>
+      <%= render "about/about" %>
 
 </div>
 

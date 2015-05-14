@@ -4,21 +4,15 @@
 		<table class="results_table">
 		  <tr>
 		    <th>Address:</th>
-		    <th>Zip:</th>
-		    <th>Neighborhood:</th>
-		    <th>Owner Move_in:</th>
-		    <th>Condo Conversion:</th>
-		    <th>Ellis Acts:</th>
+		    <th class="results-middle">Zip:</th>
+		    <th class="results-middle">Neighborhood:</th>
 		  </tr>
 			<%@only_zips.each do |building| %>
 			  <tr>
 				  <!-- @address= building.zip_code -->
 				  <td><%=link_to building.address, building_path(building) %></td>
-			    <td><%=building.zip_code%></td>
-			    <td><%=building.neighborhood%></td>
-			    <td><%=building.move_in%></td>
-			    <td><%=building.condo_conv%></td>
-			    <td><%=building.ellis%></td>
+			    <td class="results-middle"><%=building.zip_code%></td>
+			    <td class="results-middle"><%=building.neighborhood%></td>
 			  </tr>
 			<% end %>
 		</table>
@@ -29,21 +23,19 @@
 		<table class="results_table">
 		  <tr>
 		    <th>Address:</th>
-		    <th>Zip:</th>
-		    <th>Neighborhood:</th>
-		    <th>Owner Move_in:</th>
-		    <th>Condo Conversion:</th>
-		    <th>Ellis Acts:</th>
+		    <th class="results-middle">Zip:</th>
+		    <th class="results-middle">Neighborhood:</th>
 		  </tr>
-			<%@neighbors.each do |building| %>
+		  <!-- grab the a set number of examples -->
+			<%@new =@neighbors.sample(15)  %>
+
+
+			<%@new.each do |building| %>
 			  <tr>
 			  <!-- @address= building.zip_code -->
 				  <td><%=link_to building.address, building_path(building) %></td>
-			    <td><%=building.zip_code%></td>
-			    <td><%=building.neighborhood%></td>
-			    <td><%=building.move_in%></td>
-			    <td><%=building.condo_conv%></td>
-			    <td><%=building.ellis%></td>
+			    <td class="results-middle"><%=building.zip_code%></td>
+			    <td class="results-middle"><%=building.neighborhood%></td>
 			  </tr>
 			<% end %>
 		</table>
