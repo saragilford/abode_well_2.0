@@ -8,6 +8,8 @@
   padding: 1em;
 }
 
+
+
 .results-page h1 {
   margin: 0;
   color: #777;
@@ -47,6 +49,11 @@ span.scoop{
 
 span.about_glyph  {
     font-size: 2em;
+}
+
+#tagline{
+  font-weight: bolder;
+  color: orangered;
 }
 
 /*****************************/
