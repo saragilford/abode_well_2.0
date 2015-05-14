@@ -1,8 +1,9 @@
-/*Walker added css*/
-.debug{
-  border: 1px dotted blueviolet;
-
+/*.debug {
+  border: 1px solid red;
 }
+*/
+/*Walker added css*/
+
 
 .results-page {
   padding: 1em;
@@ -30,15 +31,14 @@
   min-height: 100px;
   margin:05.3m;
 }
+
 .about_box {
 
 }
+
 .search_box{
 
 }
-
-/*****************************/
-
 
 .navbar-default .navbar-brand {
   padding: 15px 150px;
@@ -52,6 +52,10 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+#map-canvas {
+  height: 400px;
+}
+
 .badge {
   background-color: red;
   font-size: 8.5em;
@@ -59,29 +63,26 @@ body {
   margin-top: 10px;
 }
 
-.well {
-  width: 70%;
+
+.report-button-container {
+  padding-top: 50px;
 }
 
 .address {
-  position: absolute;
+  font-size: 3em;
+  margin-top: 8px;
 }
 
 .building-summary {
-  padding-top: 100px;
+  padding-right: 150px;
+  padding-top: 50px;
 }
-/*#score {
-  color: gray;
-  }
 
-.score-box {
-  float: right;
-  background-color: red;
-  width: 10%;
-  height: 5%;
+.eviction-summary {
+  font-style: italic;
+  padding-left: 10px;
+  border: 1px gray;
 }
-}*/
-
 
 .results_table {
   width: 100%;
@@ -100,4 +101,19 @@ body {
 
 .results_table table {
   border-spacing: 15px;
+}
+
+.btn {
+   padding: 14px 24px;
+   border: 0 none;
+   font-weight: 700;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   background: red;
+   color: #ffffff;
+   font-size: 2.3em;
+ }
+
+.report-container {
+  margin-left: 50%;
 }
