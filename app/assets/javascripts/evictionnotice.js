@@ -1,10 +1,12 @@
 $(document).ready(function() {
 
-$('.evict-notice-form form').on('submit', function(event){
+$('.report-form').on('submit', function(event){
     event.preventDefault();
 
-
-    $('.evict-notice-form').css({"visibility":"hidden"});
+    $('body').animate({
+         scrollTop: $('.big-mama-nav').offset().top
+           }, 2000);
+    // $('.report-container').css({"display":"none"});
     console.log(this);
 
     request = $.ajax({
