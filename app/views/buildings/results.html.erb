@@ -1,26 +1,11 @@
-<head>
+<div class="results-page ghost-image">
 	<h1>	Matching Addresses </h1>
-	
-<!-- Temporary Styling -->
-<style>
-	table, th, td {
-	    border: 1px solid black;
-	    padding: 5px;
-	}
-	th { background-color: steelblue; color: white;
-	}
-	table {
-	    border-spacing: 15px;
-	}
-</style>
 
-</head>
-	<body>
 
-	<table class="results_table" style="width:100%">
+	<table class="results_table">
 	  <tr>
 	    <th>Address:</th>
-	    <th>Zip:</th>		
+	    <th>Zip:</th>
 	    <th>Neighborhood:</th>
 	    <th>Owner Move_in:</th>
 	    <th>Condo Conversion:</th>
@@ -29,17 +14,15 @@
 		<%@only_zips.each do |building| %>
 		  <tr>
 		    <td><%=building.address%></td>
-		    <td><%=building.zip_code%></td>		
-		    <td><%=building.neighborhood%></td>		
-		    <td><%=building.move_in%></td>		
-		    <td><%=building.condo_conv%></td>		
-		    <td><%=building.ellis%></td>		
+		    <td><%=building.zip_code%></td>
+		    <td><%=building.neighborhood%></td>
+		    <td><%=building.move_in%></td>
+		    <td><%=building.condo_conv%></td>
+		    <td><%=building.ellis%></td>
 		  </tr>
 		<% end %>
-	  
+
 	</table>
+</div>
 
-
-	</body>
-</html>
 

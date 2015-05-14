@@ -5,6 +5,27 @@
 /*Walker added css*/
 
 
+.results-page {
+  padding: 1em;
+}
+
+.results-page h1 {
+  margin: 0;
+  color: #777;
+  text-shadow:
+   -1px -1px 0 #4E4C4F,
+    1px -1px 0 #4E4C4F,
+    -1px 1px 0 #4E4C4F,
+     1px 1px 0 #4E4C4F;
+}
+
+.ghost-image {
+  background: url("Rent-Control-in-San-Francisco-alt-ghost.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 94.7vh;
+}
+
 /*debug for the abou_elements here*/
 .about_elements {
   min-height: 100px;
@@ -19,15 +40,12 @@
 
 }
 
-.results_table{
-
-}
-
-/*****************************/
-
-
 .navbar-default .navbar-brand {
   padding: 15px 150px;
+}
+
+.navbar {
+  margin-bottom: 0px!important;
 }
 
 body {
@@ -66,6 +84,25 @@ body {
   border: 1px gray;
 }
 
+.results_table {
+  width: 100%;
+  background-color: white;
+}
+
+.results_table table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.results_table th {
+  background-color: red;
+  color: white;
+}
+
+.results_table table {
+  border-spacing: 15px;
+}
+
 .btn {
    padding: 14px 24px;
    border: 0 none;
@@ -80,8 +117,3 @@ body {
 .report-container {
   margin-left: 50%;
 }
-
-
-
-
-
