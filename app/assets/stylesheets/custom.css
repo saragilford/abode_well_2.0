@@ -1,10 +1,26 @@
-/*.debug {
-  border: 1px solid red;
-}*/
+.debug {
+  /* border: 1px solid red; */
+  /* padding-top: 3em; */
+}
 
 /*Walker added css*/
 
+/*nav-bar- Walker*/
+
+.main_logo{
+  height: 5em;
+}
+
+.navy{
+  height: 5em;
+}
+/**/
+
 /*style results table*/
+
+.results-middle {
+  text-align: center;
+}
 
 .results_matching{
   margin-bottom: 5em;
@@ -14,10 +30,13 @@
   padding: 1em;
 }
 
+<<<<<<< HEAD
 .abode-well-hero-form {
   padding-top: 15px;
 }
 
+=======
+>>>>>>> 2780a6d606e9f54c65edd5d45e0c9d41a1af4ca2
 /*********/
 
 .tab-content {
@@ -148,7 +167,10 @@ body {
 
 .results_table {
   width: 100%;
+  border-radius: 40px;
   background-color: white;
+  opacity: .75;
+  font-size: 1.5em;
 }
 
 .results_table table, th, td {

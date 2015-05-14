@@ -48,6 +48,7 @@
   <div class="row prof-row debug" id="report-row">
 
     <!-- Quadrant 4 -->
+<<<<<<< HEAD
     <div class="col-xs-12 col-md-6 recent-reports-container debug">
       <h2>Recent Reports</h2>
       <div class="recent-reports-comments">
@@ -60,6 +61,27 @@
       <% end %>
     </div>
     </div>
+=======
+    div class="col-xs-12 col-md-6 debug">
+          <h2>Recent Reports</h2>
+          <% if @reports_array.length > 0 %>
+            <% @reports_array.each do |report| %>
+              <div class="well">
+                <% if  report.class.to_s == "EvictionNotice"  %>
+                  <h4 class="type-of-comment">Eviction Notice</h4><br>
+                <% elsif  report.class.to_s == "FixOrder" %>
+                  <h4 class="type-of-comment">Maintenance Issue</h4><br>
+                <% elsif  report.class.to_s == "RentNotice"  %>
+                  <h4 class="type-of-comment">Rent Increase</h4><br>
+                <% elsif  report.class.to_s == "Harassment"  %>
+                  <h4 class="type-of-comment">Landlord Harassment</h4><br>
+                <% end %>
+                <span class="created"><%= report.created_at.strftime("%b %d, %Y") %></span> | Comment: <span class="report_comment"><%= report.comment %></span>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+>>>>>>> 2780a6d606e9f54c65edd5d45e0c9d41a1af4ca2
     <!-- End Quadrant 4 -->
 
     <!-- Quadrant 3 -->
