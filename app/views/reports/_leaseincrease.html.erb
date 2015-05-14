@@ -4,10 +4,10 @@
 
   <form class="form-horizontal" action="/buildings/<%=@building.id%>/rent_notices" method="POST">
     <div class="form-group">
-      <label class="sr-only" for="previousRent">Previous Rent (in dollars)</label>
+      <label class="sr-only" for="previousRent">Previous Rent</label>
       <div class="input-group">
         <div class="input-group-addon">$</div>
-          <input type="integer" class="form-control"  name="prior_rent" placeholder="Amount">
+          <input type="integer" class="form-control rent-amount"  name="prior_rent" placeholder="Amount">
       </div>
     </div>
 
@@ -15,7 +15,7 @@
       <label class="sr-only" for="newRent">New Rent: $</label>
       <div class="input-group">
         <div class="input-group-addon">$</div>
-          <input type="integer" class="form-control"  name="new_rent" placeholder="Amount">
+          <input type="integer" class="form-control rent-amount" name="new_rent" placeholder="Amount">
         </div>
     </div>
 

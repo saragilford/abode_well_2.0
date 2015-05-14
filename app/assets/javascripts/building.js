@@ -5,6 +5,11 @@ $(document).ready(function() {
 
     $('.report-container').css("display", "initial");
 
+    $('body').animate({
+         scrollTop: $('.report-container').offset().top
+           }, 2000);
+
+
     $.ajax({
     url: 'http://localhost:3000',
     dataType: 'json'
@@ -13,9 +18,11 @@ $(document).ready(function() {
     })
   });
 
- $("#report-form-dropdown").change(function(){
-  $(".form-contents").children().css({"display":"none"});
-  $("." + $(this).val()).css({"display":"initial"});
- });
+ // $("#report-form-dropdown").change(function(){
+ //  $(".form-contents").children().css({"display":"none"});
+ //  $("." + $(this).val()).css({"display":"initial"});
+ // });
+
+
 
 });
