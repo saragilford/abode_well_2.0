@@ -51,6 +51,7 @@
 
     <div class="col-xs-12 col-md-6 debug">
           <h2>Recent Reports</h2>
+          <div class="recent-reports-comments">
           <% if @reports_array.length > 0 %>
             <% @reports_array.each do |report| %>
               <div class="well">
@@ -67,6 +68,7 @@
               </div>
             <% end %>
           <% end %>
+        </div>
         </div>
     <!-- End Quadrant 4 -->
 
@@ -89,7 +91,7 @@
           <!-- Nav tabs -->
           <ul class="nav nav-tabs report-toggle" role="tablist">
             <li role="presentation" class="active"><a href="#lease-increase" aria-controls="lease-increase" role="tab" data-toggle="tab">Lease Increase</a></li>
-            <li role="presentation"><a href="#maint-issue" aria-controls="maint-issue" role="tab" data-toggle="tab">Maintenace</a></li>
+            <li role="presentation"><a href="#maint-issue" aria-controls="maint-issue" role="tab" data-toggle="tab">Maintenance</a></li>
             <li role="presentation"><a href="#evic-notices" aria-controls="evic-notices" role="tab" data-toggle="tab">Eviction Notices</a></li>
             <li role="presentation"><a href="#harassment" aria-controls="harassment" role="tab" data-toggle="tab">Harassment</a></li>
           </ul>
