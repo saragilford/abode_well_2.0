@@ -49,8 +49,9 @@
 
     <!-- Quadrant 4 -->
 
-    <div class="col-xs-12 col-md-6 recent-reports-comments debug">
+    <div class="col-xs-12 col-md-6 debug">
           <h2>Recent Reports</h2>
+          <div class="recent-reports-comments">
           <% if @reports_array.length > 0 %>
             <% @reports_array.each do |report| %>
               <div class="well">
@@ -67,6 +68,7 @@
               </div>
             <% end %>
           <% end %>
+        </div>
         </div>
     <!-- End Quadrant 4 -->
 
