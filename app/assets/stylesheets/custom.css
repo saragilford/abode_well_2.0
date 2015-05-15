@@ -1,14 +1,19 @@
-/*.debug {*/
-  /* border: 1px solid red; */
-  /* padding-top: 3em; */
-/*}*/
+.debug {
+   /*border: 1px solid red; */
+   /*padding-top: 3em; */
+}
+
+.new_nav_button{
+  margin-top: 1em;
+  color:grey;
+}
 
 /*Walker added css*/
 
 /*nav-bar- Walker*/
 
 .main_logo{
-  height: 2em;
+  height: 3em;
 }
 
 .navy{
