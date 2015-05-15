@@ -1,7 +1,11 @@
-/*.debug {*/
-  /* border: 1px solid red; */
-  /* padding-top: 3em; */
-/*}*/
+.debug {
+   /*border: 1px solid red; */
+   /*padding-top: 3em; */
+}
+
+.new_nav_button{
+  margin-top: 1em;
+}
 
 /*Walker added css*/
 
