@@ -14,9 +14,7 @@ class BuildingsController < ApplicationController
         end
       end
 
-
     @this_building = @buildings[0]
-
 
     @neighbors = Building.where(neighborhood: @this_building.neighborhood)
 

@@ -1,4 +1,4 @@
-$(document).ready(function(){
+// $(document).ready(function(){
 
 
 // locator and target event
@@ -20,5 +20,5 @@ $(document).ready(function(){
 // append the page with the results view (data)
 
 
-});
+// });
 

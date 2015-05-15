@@ -5,10 +5,22 @@
 
 .new_nav_button{
   margin-top: 1em;
-  color:grey;
+  color: red;
+  /* background-color: lightgray; */
 }
 
 /*Walker added css*/
+
+/*error messag*/
+.error_title {
+  text-align: center;
+}
+
+.busted_house {
+background-color:yellow;
+}
+/**/
+
 
 /*nav-bar- Walker*/
 
@@ -126,6 +138,7 @@ span.about_glyph  {
 
 .new_nav {
   padding: 1em 0 1em 0;
+  background-color: lightgrey;
 }
 
 new_nav_button{
