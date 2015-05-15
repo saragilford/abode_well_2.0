@@ -6,7 +6,7 @@ class HarassmentsController < ApplicationController
     if @harass.save
       respond_to do |format|
         format.json { render json: @harass.to_json }
-        format.html {redirect_to building_path}
+        format.html {redirect_to building_path(@building)}
       end
     end
   end

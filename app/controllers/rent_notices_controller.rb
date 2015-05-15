@@ -6,7 +6,7 @@ class RentNoticesController < ApplicationController
     if @rent_increase.save
       respond_to do |format|
         format.json { render json: @rent_increase.to_json }
-        format.html {redirect_to building_path}
+        format.html {redirect_to building_path(@building)}
       end
     end
   end
