@@ -18,16 +18,44 @@ class Building < ActiveRecord::Base
   end
 
   def import_pub!
-    import_move_in!
-    import_condo!
-    import_ellis!
+    # first_batch
+    # second_batch
+    # third_batch
+    # fourth_batch
+    fifth_batch
+    # sixth_batch
   end
 
-  def import_ellis!
-    CSV.foreach("Ellis_Act_Withdrawals.csv", encoding: "iso-8859-1:UTF-8", headers: true, header_converters: :symbol) do |row|
+  def first_batch
+    import_ellis!("Ellis_Act_Withdrawals_1.csv")
+  end
+
+  def second_batch
+    import_move_in!("Owner_Move_In.csv")
+  end
+
+  def third_batch
+    import_move_in!("Owner_Move_In_2.csv")
+  end
+
+  def fourth_batch
+    import_move_in!("Owner_Move_In_3.csv")
+  end
+
+  def fifth_batch
+    import_move_in!("Owner_Move_In_4.csv")
+    import_ellis!("Ellis_Act_Withdrawals_2.csv")
+  end
+
+  def sixth_batch
+    import_condo!
+  end
+
+  def import_ellis!(file)
+    CSV.foreach(file, encoding: "iso-8859-1:UTF-8", headers: true, header_converters: :symbol) do |row|
+       @building = Building.where(orig_address: row[:address]).first
        if exists?(row[:address])
          p "Changing ELLIS of #{row[:address]}"
-         @building = Building.where(address: row[:address]).first
          @building.ellis = true
        else
          latitude, longitude = parse_latitude_and_longitude_string(row[:lat_long])
@@ -35,6 +63,7 @@ class Building < ActiveRecord::Base
             address: reverse_geocode(latitude, longitude),
             zip_code: row[:zip_code],
             neighborhood: row[:neighborhood],
+            orig_address: row[:address],
             latitude: latitude,
             longitude: longitude,
             move_in: true,
@@ -45,19 +74,21 @@ class Building < ActiveRecord::Base
      end
    end
 
-  def import_move_in!
-    CSV.foreach("Owner_Move_In.csv", encoding: "iso-8859-1:UTF-8", headers: true, header_converters: :symbol) do |row|
+  def import_move_in!(file)
+    CSV.foreach(file, encoding: "iso-8859-1:UTF-8", headers: true, header_converters: :symbol) do |row|
+        @building = Building.where(orig_address: row[:address]).first
         if exists?(row[:address])
           p "Changing move in of #{row[:address]}"
-          @building = Building.where(address: row[:address]).first
           @building.move_in = true
         else
           latitude, longitude = parse_latitude_and_longitude_string(row[:lat_long])
+          p
           attributes = {
             address: reverse_geocode(latitude, longitude),
             zip_code: row[:zip_code],
             neighborhood: row[:neighborhood],
             latitude: latitude,
+            orig_address: row[:address],
             longitude: longitude,
             move_in: true,
           }
@@ -69,9 +100,9 @@ class Building < ActiveRecord::Base
 
   def import_condo!
     CSV.foreach("Condo_Conv.csv", encoding: "iso-8859-1:UTF-8", headers: true, header_converters: :symbol) do |row|
-        if exists?(row[:address])
+        @building = Building.where(orig_address: row[:address]).first
+          if exists?(row[:address])
           p "Changing condo conv of #{row[:address]}"
-          @building = Building.where(address: row[:address]).first
           @building.condo_conv = true
         else
           latitude, longitude = parse_latitude_and_longitude_string(row[:lat_long])
@@ -80,6 +111,7 @@ class Building < ActiveRecord::Base
             zip_code: row[:zip_code],
             neighborhood: row[:neighborhood],
             latitude: latitude,
+            orig_address: row[:address],
             longitude: longitude,
             move_in: true,
           }
@@ -90,7 +122,7 @@ class Building < ActiveRecord::Base
   end
 
   def reverse_geocode(lat,long)
-    sleep(0.25)
+    sleep(0.5)
     result = Geocoder.search("#{lat}, #{long}").first
     result.address.split(", ").first if result
   end
@@ -100,7 +132,7 @@ class Building < ActiveRecord::Base
   end
 
   def exists?(address)
-    if Building.where(address: address).first
+    if Building.where(orig_address: address).first
       return true
     end
   end

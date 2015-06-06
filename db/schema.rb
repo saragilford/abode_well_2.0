@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512223031) do
+ActiveRecord::Schema.define(version: 20150606203914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150512223031) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "ellis"
+    t.string   "orig_address"
   end
 
   create_table "ellis_acts", force: :cascade do |t|
