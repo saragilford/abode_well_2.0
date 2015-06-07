@@ -8,18 +8,21 @@ class BuildingsController < ApplicationController
     @only_zips = []
 
     @buildings = Building.where(zip_code: params[:zip_code])
+
+    if @buildings
       @buildings.each do |building|
         if building.only_numbers == params[:address].gsub(/\D/,"")
           @only_zips << building
         end
       end
 
-    @this_building = @buildings[0]
+      @this_building = @only_zips.first
+      @neighbors = Building.where(neighborhood: @this_building.neighborhood)
 
-    @neighbors = Building.where(neighborhood: @this_building.neighborhood)
-
-      # had a merge conflict here: render results ok?
-    render :results
+      render :results
+    else
+      redirect_to new_building_path
+    end
   end
 
   def new

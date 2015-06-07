@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
 
  	def index
-    "Search#index page"    
+    "Search#index page"
   end
 
 	def new
@@ -20,7 +20,7 @@ class SearchesController < ApplicationController
 
 	end
 
-def show
+  def show
     render json:  @search
   end
 
