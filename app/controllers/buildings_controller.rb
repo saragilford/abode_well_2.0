@@ -9,13 +9,13 @@ class BuildingsController < ApplicationController
 
     @buildings = Building.where(zip_code: params[:zip_code])
 
-    if @buildings
-      @buildings.each do |building|
-        if building.only_numbers == params[:address].gsub(/\D/,"")
-          @only_zips << building
-        end
+    @buildings.each do |building|
+      if building.only_numbers == params[:address].gsub(/\D/,"")
+        @only_zips << building
       end
+    end
 
+    if @only_zips.first != nil
       @this_building = @only_zips.first
       @neighbors = Building.where(neighborhood: @this_building.neighborhood)
 
@@ -24,6 +24,7 @@ class BuildingsController < ApplicationController
       redirect_to new_building_path
     end
   end
+
 
   def new
 
