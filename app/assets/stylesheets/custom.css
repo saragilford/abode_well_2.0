@@ -3,9 +3,16 @@
    /*padding-top: 3em; */
 }
 
-.new_nav_button{
+.navbar-header a  {
+  color: white;
+  text-align: center;
+  margin-right: 150px;
+  margin-left: 180px;
+}
+
+.new_nav_button {
   margin-top: 1em;
-  color: red;
+
   /* background-color: lightgray; */
 }
 
@@ -19,19 +26,9 @@
 .busted_house {
 background-color:yellow;
 }
-/**/
 
 
-/*nav-bar- Walker*/
 
-.main_logo{
-  height: 3em;
-}
-
-.navy{
-  height: 5em;
-}
-/**/
 
 /*style results table*/
 
@@ -141,13 +138,27 @@ span.about_glyph  {
   background-color: lightgrey;
 }
 
-new_nav_button{
+/*new_nav_button{
   color:grey;
-}
+}*/
 /*****************************/
 
-.navbar-default .navbar-brand {
-  /* padding: 15px 150px; */
+.navbar-default .navbar-home  {
+   padding: 15px 150px;
+   margin-right: 150px;
+   color: white;
+}
+
+.navbar-default .navbar-about {
+   padding: 15px 150px;
+   margin-right: 150px;
+   color: white;
+}
+
+.navbar-default .navbar-learn {
+   padding: 15px 150px;
+   color: white;
+
 }
 
 .navbar {
