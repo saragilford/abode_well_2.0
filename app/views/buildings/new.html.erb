@@ -19,7 +19,7 @@
     <!-- End of Quadrant 2 -->
   </div>
   <!-- End of top row -->
-  <!-- Start of Bottom row -->
+  <!-- Start of Second row -->
   <div class="row prof-row debug">
     <!-- Quadrant 4 -->
     <div class="col-xs-12 col-md-6 debug">
@@ -30,7 +30,37 @@
     </div>
     <!-- End of Quadrant 3 -->
   </div>
-  <!-- End of Bottom row -->
+  <!-- End of Second row -->
+  <!-- Start of Third row -->
+  <div class="row debug">
+    <div class="report-container">
+
+      <div class="form-contents">
+        <div role="tabpanel">
+
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs report-toggle" role="tablist">
+            <li role="presentation" class="active"><a href="#lease-increase" aria-controls="lease-increase" role="tab" data-toggle="tab">Lease Increase</a></li>
+            <li role="presentation"><a href="#maint-issue" aria-controls="maint-issue" role="tab" data-toggle="tab">Maintenance</a></li>
+            <li role="presentation"><a href="#evic-notices" aria-controls="evic-notices" role="tab" data-toggle="tab">Eviction Notices</a></li>
+            <li role="presentation"><a href="#harassment" aria-controls="harassment" role="tab" data-toggle="tab">Harassment</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="lease-increase"><%= render partial: 'reports/leaseincrease' %></div>
+            <div role="tabpanel" class="tab-pane" id="maint-issue"><%= render partial: 'reports/maintenenceissue' %></div>
+            <div role="tabpanel" class="tab-pane" id="evic-notices"><%= render partial: 'reports/evictionnotice' %></div>
+            <div role="tabpanel" class="tab-pane" id="harassment"><%= render partial: 'reports/otherharassment' %></div>
+          </div>
+
+
+
+
+    </div>
+
+  </div>
+  <!-- End of third row -->
 </div>
 
 
