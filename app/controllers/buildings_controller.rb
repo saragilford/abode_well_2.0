@@ -27,6 +27,10 @@ class BuildingsController < ApplicationController
 
   def new
 
+    @report_categories = ["Select...", "LeaseIncrease", "MaintenenceIssue", "EvictionNotice", "OtherHarassment"]
+
+    @letter_options = ["Ellis Act", "Landlord Move-In", "Condo Conversion"]
+
   end
 
   def create
@@ -40,13 +44,17 @@ class BuildingsController < ApplicationController
       neighborhood: result.address_components[2]["long_name"]
       )
 
+    @harassment = @building.harassments.build(category: params[:category],comment: params[:comment])
+
+    @fix_order = @building.fix_orders.build(days_unresolved: params[:days_unresolved],comment: params[:comment], description: [:description])
+
+    @rent_notice = @building.rent_notices.build(prior_rent: params[:prior_rent], new_rent: params[:new_rent], comment: params[:comment])
+
+    @eviction_notice = @building.eviction_notices.build(category: params[:category],comment: params[:comment])
 
   end
 
   def show
-    # @building = Building.find(params[:id])
-    # @score = @building.badge_score
-
 
     @report_categories = ["Select...", "LeaseIncrease", "MaintenenceIssue", "EvictionNotice", "OtherHarassment"]
 

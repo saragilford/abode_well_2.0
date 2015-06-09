@@ -1,7 +1,7 @@
 class EvictionNoticesController < ApplicationController
 
   def create
-    @building = Building.where(id: params[:building_id]).first
+    @building = Building.where(id: params[:building_id]).first ||
     @evict = EvictionNotice.new(category: params[:category],comment: params[:comment],building_id: @building.id)
     if @evict.save
       respond_to do |format|
