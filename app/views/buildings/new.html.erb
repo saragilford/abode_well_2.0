@@ -1,41 +1,22 @@
 <div class="container debug">
   <!-- Top Row -->
   <div class="row top-row debug">
-    <!-- Quadrant 1 -->
-    <div class="col-xs-12 col-md-6 debug">
+    <div class="jumbotron">
       <h1>No News is Good News</h1>
       <h2>Here's what we know about this building:</h2>
       <p>
         No one has been displaced from this building due to Ellis Act evictions, condo conversion evictions, or owner move-in evictions.
       </p>
-      <p>
-        Learn more about no-fault evictions <a href="link">here</a>.
-      </p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">File a New Report</a>
     </div>
-    <!-- End of Quadrant 1 -->
-    <!-- Quadrant 2 -->
-    <div class="col-xs-12 col-md-6 debug">
-    </div>
-    <!-- End of Quadrant 2 -->
   </div>
   <!-- End of top row -->
   <!-- Start of Second row -->
-  <div class="row prof-row debug">
-    <!-- Quadrant 4 -->
-    <div class="col-xs-12 col-md-6 debug">
-    </div>
-    <!-- End of Quadrant 4 -->
-    <!-- Quadrant 3 -->
-    <div class="col-xs-12 col-md-6 debug report-button-container">
-    </div>
-    <!-- End of Quadrant 3 -->
-  </div>
-  <!-- End of Second row -->
-  <!-- Start of Third row -->
   <div class="row debug">
-    <div class="report-container">
+    <div class="report-container debug">
 
-      <div class="form-contents">
+      <div class="form-contents debug">
         <div role="tabpanel">
 
           <!-- Nav tabs -->
@@ -48,10 +29,10 @@
 
           <!-- Tab panes -->
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="lease-increase"><%= render partial: 'reports/leaseincrease' %></div>
-            <div role="tabpanel" class="tab-pane" id="maint-issue"><%= render partial: 'reports/maintenenceissue' %></div>
-            <div role="tabpanel" class="tab-pane" id="evic-notices"><%= render partial: 'reports/evictionnotice' %></div>
-            <div role="tabpanel" class="tab-pane" id="harassment"><%= render partial: 'reports/otherharassment' %></div>
+            <div role="tabpanel" class="tab-pane active" id="lease-increase"><%= render partial: 'new_reports/leaseincrease' %></div>
+            <div role="tabpanel" class="tab-pane" id="maint-issue"><%= render partial: 'new_reports/maintenenceissue' %></div>
+            <div role="tabpanel" class="tab-pane" id="evic-notices"><%= render partial: 'new_reports/evictionnotice' %></div>
+            <div role="tabpanel" class="tab-pane" id="harassment"><%= render partial: 'new_reports/otherharassment' %></div>
           </div>
 
 
@@ -60,7 +41,7 @@
     </div>
 
   </div>
-  <!-- End of third row -->
+  <!-- End of Second row -->
 </div>
 
 
