@@ -25,7 +25,7 @@ class Building < ActiveRecord::Base
   def import_pub!
     # first_batch -- done
     # second_batch -- done
-    # third_batch
+    third_batch
     # fourth_batch
     # fifth_batch
     # sixth_batch -- done

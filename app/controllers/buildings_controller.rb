@@ -34,6 +34,9 @@ class BuildingsController < ApplicationController
   end
 
   def create
+    p '*' * 80
+    p params
+    p '*' * 80
     result = Geocoder.search(parse_address(params[:address],params[:zip_code])).first
 
     @building = Building.create(
