@@ -10,6 +10,11 @@ class Building < ActiveRecord::Base
   has_many  :rent_notices
   has_many  :eviction_notices
 
+  accepts_nested_attributes_for  :harassments
+  accepts_nested_attributes_for  :fix_orders
+  accepts_nested_attributes_for  :rent_notices
+  accepts_nested_attributes_for  :eviction_notices
+
 
   #Data Import
 
@@ -136,6 +141,13 @@ class Building < ActiveRecord::Base
       return true
     end
   end
+
+  def parse_address(address,zip_code)
+    address + ", " + zip_code.to_s
+  end
+
+
+
 
 
 

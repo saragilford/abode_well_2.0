@@ -6,7 +6,6 @@ class BuildingsController < ApplicationController
 
   def search
     @only_zips = []
-
     @buildings = Building.where(zip_code: params[:zip_code])
 
     @buildings.each do |building|
@@ -21,7 +20,7 @@ class BuildingsController < ApplicationController
 
       render :results
     else
-      redirect_to new_building_path
+      redirect_to new_building_path(:zip_code => params[:zip_code], :address => params[:address])
     end
   end
 
@@ -31,7 +30,16 @@ class BuildingsController < ApplicationController
   end
 
   def create
-    @building = Building.new()
+    result = Geocoder.search(parse_address(params[:address],params[:zip_code])).first
+
+    @building = Building.create(
+      address: params[:address],
+      zip_code: params[:zip_code],
+      latitude: result.geometry["location"]["lat"],
+      longitude: result.geometry["location"]["lng"],
+      neighborhood: result.address_components[2]["long_name"]
+      )
+
 
   end
 
