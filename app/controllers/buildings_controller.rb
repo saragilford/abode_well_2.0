@@ -20,7 +20,11 @@ class BuildingsController < ApplicationController
 
       render :results
     else
-      redirect_to new_building_path(:zip_code => params[:zip_code], :address => params[:address])
+      session[:address] = params[:address]
+      session[:zip_code] = params[:zip_code]
+      redirect_to new_building_path
+
+      # (:zip_code => params[:zip_code], :address => params[:address])
     end
   end
 
@@ -37,23 +41,38 @@ class BuildingsController < ApplicationController
     p '*' * 80
     p params
     p '*' * 80
-    result = Geocoder.search(parse_address(params[:address],params[:zip_code])).first
+    p session[:address]
+    p session[:zip_code]
+    result = Geocoder.search(parse_address(session[:address],session[:zip_code])).first
+    p "^" * 80
+    p result
 
-    @building = Building.create(
-      address: params[:address],
-      zip_code: params[:zip_code],
+    @building = Building.new(
+      address: session[:address],
+      zip_code: session[:zip_code],
       latitude: result.geometry["location"]["lat"],
       longitude: result.geometry["location"]["lng"],
       neighborhood: result.address_components[2]["long_name"]
       )
 
-    @harassment = @building.harassments.build(category: params[:category],comment: params[:comment])
+    if @building.save
+      @harassment = @building.harassments.build(category: params[:category],comment: params[:harasscomment])
 
-    @fix_order = @building.fix_orders.build(days_unresolved: params[:days_unresolved],comment: params[:comment], description: [:description])
+      @fix_order = @building.fix_orders.build(days_unresolved: params[:days_unresolved],comment: params[:fixcomment], description: [:description])
 
-    @rent_notice = @building.rent_notices.build(prior_rent: params[:prior_rent], new_rent: params[:new_rent], comment: params[:comment])
+      @rent_notice = @building.rent_notices.build(prior_rent: params[:prior_rent], new_rent: params[:new_rent], comment: params[:rentcomment])
 
-    @eviction_notice = @building.eviction_notices.build(category: params[:category],comment: params[:comment])
+      @eviction_notice = @building.eviction_notices.build(category: params[:eviccategory],comment: params[:eviccomment])
+
+      redirect_to building_path(@building)
+
+     else
+
+       render json: @building.errors.to_json
+       p '%' * 100
+       p @building.errors
+       p '%' * 100
+     end
 
   end
 
