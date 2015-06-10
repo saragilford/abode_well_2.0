@@ -16,6 +16,10 @@ Rails.application.routes.draw do
 
   resources :searches
 
+  resources :about
+
+  resources :learn
+
   get'buildings/search' => 'buildings#search'
 
   resources :buildings do
