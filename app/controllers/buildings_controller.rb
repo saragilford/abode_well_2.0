@@ -1,14 +1,7 @@
 class BuildingsController < ApplicationController
 
   def index
-    render :"buildings/index"
 
-    # if params[:errors] != nil
-    #   @errors = params[:errors]
-    #   p '*' * 80
-    #   p @errors
-    #   p '*' * 80
-    # end
   end
 
   def search
@@ -79,11 +72,7 @@ class BuildingsController < ApplicationController
         redirect_to @building
 
        else
-
          render json: @building.errors.to_json
-         p '%' * 100
-         p @building.errors
-         p '%' * 100
        end
      end
 
@@ -134,6 +123,12 @@ class BuildingsController < ApplicationController
       response = {:score => @building.badge_score}
       render json: response.to_json
 
+    end
+
+    def complaint_count
+      @building = Building.find(params[:id])
+      response = {:harass => @building.harassments.count, :fix_order => @building.fix_orders.count, :evic => @building.eviction_notices.count, :rent => @building.rent_notices.count}
+      render json: response.to_json
     end
 
     private

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :buildings do
     member do
       get 'score'
+      get 'complaint_count'
     end
   # this method would allow a search results page in buildings
     resources :ellis_acts
