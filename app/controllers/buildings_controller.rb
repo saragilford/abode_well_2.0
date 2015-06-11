@@ -2,6 +2,13 @@ class BuildingsController < ApplicationController
 
   def index
     render :"buildings/index"
+
+    # if params[:errors] != nil
+    #   @errors = params[:errors]
+    #   p '*' * 80
+    #   p @errors
+    #   p '*' * 80
+    # end
   end
 
   def search
@@ -36,14 +43,7 @@ class BuildingsController < ApplicationController
   end
 
   def create
-    p '*' * 80
-    p params
-    p '*' * 80
-    p session[:address]
-    p session[:zip_code]
     result = Geocoder.search(parse_address(session[:address],session[:zip_code])).first
-    p "^" * 80
-    p result
 
     if result != nil
       @building = Building.new(
@@ -55,9 +55,6 @@ class BuildingsController < ApplicationController
         )
 
       if @building.save
-        p '*' * 80
-        p "Building got saved yall!"
-        p '*' * 80
 
         @harassment = @building.harassments.build(category: params[:category],comment: params[:harasscomment])
 
@@ -80,8 +77,6 @@ class BuildingsController < ApplicationController
 
 
         redirect_to @building
-
-        p "****I've been redirected****"
 
        else
 
