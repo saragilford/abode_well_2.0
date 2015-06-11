@@ -23,8 +23,6 @@ class BuildingsController < ApplicationController
       session[:address] = params[:address]
       session[:zip_code] = params[:zip_code]
       redirect_to new_building_path
-
-      # (:zip_code => params[:zip_code], :address => params[:address])
     end
   end
 
