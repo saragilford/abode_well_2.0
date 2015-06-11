@@ -47,31 +47,53 @@ class BuildingsController < ApplicationController
     p "^" * 80
     p result
 
-    @building = Building.new(
-      address: session[:address],
-      zip_code: session[:zip_code],
-      latitude: result.geometry["location"]["lat"],
-      longitude: result.geometry["location"]["lng"],
-      neighborhood: result.address_components[2]["long_name"]
-      )
+    if result != nil
+      @building = Building.new(
+        address: format_address(result),
+        zip_code: session[:zip_code],
+        latitude: format_lat(result),
+        longitude: format_long(result),
+        neighborhood: format_neighborhood(result)
+        )
 
-    if @building.save
-      @harassment = @building.harassments.build(category: params[:category],comment: params[:harasscomment])
+      if @building.save
+        # @harassment = @building.harassments.build(category: params[:category],comment: params[:harasscomment])
 
-      @fix_order = @building.fix_orders.build(days_unresolved: params[:days_unresolved],comment: params[:fixcomment], description: [:description])
+        # @fix_order = @building.fix_orders.build(days_unresolved: params[:days_unresolved],comment: params[:fixcomment], description: [:description])
+        p '*' * 80
+        p "Building got saved yall!"
+        p '*' * 80
 
-      @rent_notice = @building.rent_notices.build(prior_rent: params[:prior_rent], new_rent: params[:new_rent], comment: params[:rentcomment])
 
-      @eviction_notice = @building.eviction_notices.build(category: params[:eviccategory],comment: params[:eviccomment])
+        @rent_notice = @building.rent_notices.build(prior_rent: params[:prior_rent], new_rent: params[:new_rent], comment: params[:rentcomment])
 
-      redirect_to building_path(@building)
+        if @rent_notice.save
+          p '*' * 80
+          p "Rent complaint was saved"
+          p '*' * 80
+        else
+          p '*' * 80
+          p "RENT NOT SAVED AT ALL!!!"
+          p '*' * 80
+        end
 
-     else
 
-       render json: @building.errors.to_json
-       p '%' * 100
-       p @building.errors
-       p '%' * 100
+
+
+        # @eviction_notice = @building.eviction_notices.build(category: params[:eviccategory],comment: params[:eviccomment])
+
+
+        redirect_to @building
+
+        p "****I've been redirected****"
+
+       else
+
+         render json: @building.errors.to_json
+         p '%' * 100
+         p @building.errors
+         p '%' * 100
+       end
      end
 
   end
@@ -121,6 +143,28 @@ class BuildingsController < ApplicationController
       response = {:score => @building.badge_score}
       render json: response.to_json
 
+    end
+
+    private
+
+    def parse_address(address,zip_code)
+      address + ", " + zip_code.to_s
+    end
+
+    def format_address(data)
+      data.address_components[0]["long_name"] + " " + data.address_components[1]["long_name"]
+    end
+
+    def format_lat(data)
+      data.geometry["location"]["lat"]
+    end
+
+    def format_long(data)
+      data.geometry["location"]["lng"]
+    end
+
+    def format_neighborhood(data)
+      data.address_components[2]["long_name"]
     end
 
 end

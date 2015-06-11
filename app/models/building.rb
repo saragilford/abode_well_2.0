@@ -142,9 +142,6 @@ class Building < ActiveRecord::Base
     end
   end
 
-  def parse_address(address,zip_code)
-    address + ", " + zip_code.to_s
-  end
 
 
 
