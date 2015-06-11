@@ -20,6 +20,7 @@
       <label for="evictionComment">Comment: </label>
       <textarea class="form-control comment-box" rows="3" input type="text"  name="eviccomment" placeholder="Provide more detail..."></textarea>
     </div>
+    <input name="authenticity_token" type="hidden" value="<%= session[:_csrf_token] %>"></input>
     <button type="submit" class="btn btn-default form-button form-group">Submit</button>
   </form>
 </div>
