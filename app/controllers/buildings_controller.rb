@@ -57,30 +57,28 @@ class BuildingsController < ApplicationController
         )
 
       if @building.save
-        # @harassment = @building.harassments.build(category: params[:category],comment: params[:harasscomment])
-
-        # @fix_order = @building.fix_orders.build(days_unresolved: params[:days_unresolved],comment: params[:fixcomment], description: [:description])
         p '*' * 80
         p "Building got saved yall!"
         p '*' * 80
 
+        @harassment = @building.harassments.build(category: params[:category],comment: params[:harasscomment])
+
+        @fix_order = @building.fix_orders.build(days_unresolved: params[:days_unresolved],comment: params[:fixcomment], description: [:description])
 
         @rent_notice = @building.rent_notices.build(prior_rent: params[:prior_rent], new_rent: params[:new_rent], comment: params[:rentcomment])
 
-        if @rent_notice.save
-          p '*' * 80
-          p "Rent complaint was saved"
-          p '*' * 80
-        else
-          p '*' * 80
-          p "RENT NOT SAVED AT ALL!!!"
-          p '*' * 80
+        @eviction_notice = @building.eviction_notices.build(category: params[:eviccategory],comment: params[:eviccomment])
+
+        if params[:harasscomment] != nil
+          @harassment.save
+        elsif params[:rentcomment] != nil
+          @rent_notice.save
+        elsif params[:fixcomment] != nil
+          @fix_order.save
+        elsif params[:eviccomment] != nil
+          @eviction_notice.save
         end
 
-
-
-
-        # @eviction_notice = @building.eviction_notices.build(category: params[:eviccategory],comment: params[:eviccomment])
 
 
         redirect_to @building
