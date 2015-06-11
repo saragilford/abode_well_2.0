@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'buildings#index'
+  root 'searches#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :buildings do
     member do
       get 'score'
+      get 'complaint_count'
     end
   # this method would allow a search results page in buildings
     resources :ellis_acts

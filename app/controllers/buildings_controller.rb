@@ -1,40 +1,84 @@
 class BuildingsController < ApplicationController
 
   def index
-    render :"buildings/index"
+
   end
 
   def search
     @only_zips = []
-
     @buildings = Building.where(zip_code: params[:zip_code])
-      @buildings.each do |building|
-        if building.only_numbers == params[:address].gsub(/\D/,"")
-          @only_zips << building
-        end
+
+    @buildings.each do |building|
+      if building.only_numbers == params[:address].gsub(/\D/,"")
+        @only_zips << building
       end
+    end
 
-    @this_building = @buildings[0]
+    if @only_zips.first != nil
+      @this_building = @only_zips.first
+      @neighbors = Building.where(neighborhood: @this_building.neighborhood)
 
-    @neighbors = Building.where(neighborhood: @this_building.neighborhood)
-
-      # had a merge conflict here: render results ok?
-    render :results
+      render :results
+    else
+      session[:address] = params[:address]
+      session[:zip_code] = params[:zip_code]
+      redirect_to new_building_path
+    end
   end
 
+
   def new
+
+    @report_categories = ["Select...", "LeaseIncrease", "MaintenenceIssue", "EvictionNotice", "OtherHarassment"]
+
+    @letter_options = ["Ellis Act", "Landlord Move-In", "Condo Conversion"]
 
   end
 
   def create
-    @building = Building.new()
+    result = Geocoder.search(parse_address(session[:address],session[:zip_code])).first
+
+    if result != nil
+      @building = Building.new(
+        address: format_address(result),
+        zip_code: session[:zip_code],
+        latitude: format_lat(result),
+        longitude: format_long(result),
+        neighborhood: format_neighborhood(result)
+        )
+
+      if @building.save
+
+        @harassment = @building.harassments.build(category: params[:category],comment: params[:harasscomment])
+
+        @fix_order = @building.fix_orders.build(days_unresolved: params[:days_unresolved],comment: params[:fixcomment], description: [:description])
+
+        @rent_notice = @building.rent_notices.build(prior_rent: params[:prior_rent], new_rent: params[:new_rent], comment: params[:rentcomment])
+
+        @eviction_notice = @building.eviction_notices.build(category: params[:eviccategory],comment: params[:eviccomment])
+
+        if params[:harasscomment] != nil
+          @harassment.save
+        elsif params[:rentcomment] != nil
+          @rent_notice.save
+        elsif params[:fixcomment] != nil
+          @fix_order.save
+        elsif params[:eviccomment] != nil
+          @eviction_notice.save
+        end
+
+
+
+        redirect_to @building
+
+       else
+         render json: @building.errors.to_json
+       end
+     end
 
   end
 
   def show
-    # @building = Building.find(params[:id])
-    # @score = @building.badge_score
-
 
     @report_categories = ["Select...", "LeaseIncrease", "MaintenenceIssue", "EvictionNotice", "OtherHarassment"]
 
@@ -79,6 +123,34 @@ class BuildingsController < ApplicationController
       response = {:score => @building.badge_score}
       render json: response.to_json
 
+    end
+
+    def complaint_count
+      @building = Building.find(params[:id])
+      response = {:harass => @building.harassments.count, :fix_order => @building.fix_orders.count, :evic => @building.eviction_notices.count, :rent => @building.rent_notices.count}
+      render json: response.to_json
+    end
+
+    private
+
+    def parse_address(address,zip_code)
+      address + ", " + zip_code.to_s
+    end
+
+    def format_address(data)
+      data.address_components[0]["long_name"] + " " + data.address_components[1]["long_name"]
+    end
+
+    def format_lat(data)
+      data.geometry["location"]["lat"]
+    end
+
+    def format_long(data)
+      data.geometry["location"]["lng"]
+    end
+
+    def format_neighborhood(data)
+      data.address_components[2]["long_name"]
     end
 
 end

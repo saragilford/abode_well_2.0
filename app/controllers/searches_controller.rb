@@ -1,7 +1,9 @@
 class SearchesController < ApplicationController
 
  	def index
-    "Search#index page"    
+    render :"buildings/index"
+    @search = Search.new()
+    @errors = @search.errors.full_messages
   end
 
 	def new
@@ -15,12 +17,13 @@ class SearchesController < ApplicationController
 		if @search.save
 			redirect_to buildings_search_path :address => @search.address, zip_code: @search.zip_code
 		else
-			render :error
+			@errors = @search.errors.full_messages
+      render :"buildings/index"
 		end
 
 	end
 
-def show
+  def show
     render json:  @search
   end
 
