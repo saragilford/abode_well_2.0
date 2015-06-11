@@ -55,7 +55,7 @@
           <% if @reports_array.length > 0 %>
             <% @reports_array.each do |report| %>
               <div class="well">
-                <% if  report.class.to_s == "EvictionNotice"  %>
+                <% if report.class.to_s == "EvictionNotice"  %>
                   <h4 class="type-of-comment">Eviction Notice</h4><br>
                 <% elsif  report.class.to_s == "FixOrder" %>
                   <h4 class="type-of-comment">Maintenance Issue</h4><br>

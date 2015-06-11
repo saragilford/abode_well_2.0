@@ -15,6 +15,7 @@ $('.report-form').on('submit', function(event){
       dataType: 'json',
     });
     request.done(function(data){
+      console.log(data);
 
        var newReport = $('.recent-reports-comments div').first().clone()
        newReport.prependTo('.recent-reports-comments');
@@ -23,17 +24,17 @@ $('.report-form').on('submit', function(event){
           .find('.report_comment')
           .text(data.comment).end()
 
-      var countRequest = $.ajax ({
-        url : "http://localhost:3000/buildings/" + data.building_id + "/complaint_count",
-        type: 'get',
-        dataType: 'json',
-      });
-      countRequest.done(function(response){
-        $('#evic-count').text(response.evic)
-        $('#fix-count').text(response.fix_order)
-        $('#harass-count').text(response.harass)
-        $('#rent-count').text(response.rent)
-      });
+      // var countRequest = $.ajax ({
+      //   url : "http://localhost:3000/buildings/" + data.building_id + "/complaint_count",
+      //   type: 'get',
+      //   dataType: 'json',
+      // });
+      // countRequest.done(function(response){
+      //   $('#evic-count').text(response.evic)
+      //   $('#fix-count').text(response.fix_order)
+      //   $('#harass-count').text(response.harass)
+      //   $('#rent-count').text(response.rent)
+      // });
 
 
       var scoreRequest = $.ajax({
