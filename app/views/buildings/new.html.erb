@@ -1,0 +1,47 @@
+<div class="container debug">
+  <!-- Top Row -->
+  <div class="row top-row debug">
+    <div class="jumbotron">
+      <h1>No News is Good News</h1>
+      <h2>Here's what we know about this building:</h2>
+      <p>
+        No one has been displaced from this building due to Ellis Act evictions, condo conversion evictions, or owner move-in evictions.
+      </p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+      <a class="btn btn-primary btn-lg" id="new-build-rprt" href="#" role="button">File a New Report</a>
+    </div>
+  </div>
+  <!-- End of top row -->
+  <!-- Start of Second row -->
+  <div class="row debug">
+    <div class="report-container debug">
+
+      <div class="form-contents debug">
+        <div role="tabpanel">
+
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs report-toggle" role="tablist">
+            <li role="presentation" class="active"><a href="#lease-increase" aria-controls="lease-increase" role="tab" data-toggle="tab">Lease Increase</a></li>
+            <li role="presentation"><a href="#maint-issue" aria-controls="maint-issue" role="tab" data-toggle="tab">Maintenance</a></li>
+            <li role="presentation"><a href="#evic-notices" aria-controls="evic-notices" role="tab" data-toggle="tab">Eviction Notices</a></li>
+            <li role="presentation"><a href="#harassment" aria-controls="harassment" role="tab" data-toggle="tab">Harassment</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="lease-increase"><%= render partial: 'new_reports/leaseincrease' %></div>
+            <div role="tabpanel" class="tab-pane" id="maint-issue"><%= render partial: 'new_reports/maintenenceissue' %></div>
+            <div role="tabpanel" class="tab-pane" id="evic-notices"><%= render partial: 'new_reports/evictionnotice' %></div>
+            <div role="tabpanel" class="tab-pane" id="harassment"><%= render partial: 'new_reports/otherharassment' %></div>
+          </div>
+
+
+
+
+    </div>
+
+  </div>
+  <!-- End of Second row -->
+</div>
+
+

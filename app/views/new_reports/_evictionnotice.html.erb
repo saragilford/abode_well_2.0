@@ -1,0 +1,26 @@
+
+<div class="evict-notice-form">
+
+
+  <form action="/buildings" method="POST" class="new-report-form">
+    <h2 class="form-group">Report Your Eviction Notice</h2>
+    <div class="form-group">
+      <label for="typeOfLetter">Type of Eviction Notice:</label>
+        <div class="letter-dropdown">
+
+
+          <select class="form-control" name="eviccategory">
+            <% @letter_options.each do |option| %>
+              <option><%= option %> </option>
+            <% end %>
+          </select>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="evictionComment">Comment: </label>
+      <textarea class="form-control comment-box" rows="3" input type="text"  name="eviccomment" placeholder="Provide more detail..."></textarea>
+    </div>
+    <input name="authenticity_token" type="hidden" value="<%= session[:_csrf_token] %>"></input>
+    <button type="submit" class="btn btn-default form-button form-group">Submit</button>
+  </form>
+</div>

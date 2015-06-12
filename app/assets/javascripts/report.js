@@ -7,7 +7,6 @@ $('.report-form').on('submit', function(event){
          scrollTop: $('.big-mama-nav').offset().top
            }, 2000);
     // $('.report-container').css({"display":"none"});
-    console.log(this);
 
     request = $.ajax({
       url: $(this).attr('action'),
@@ -16,14 +15,26 @@ $('.report-form').on('submit', function(event){
       dataType: 'json',
     });
     request.done(function(data){
-       console.log(data)
+      console.log(data);
 
-       var newEvict = $('.recent-reports-comments div').first().clone()
-       newEvict.prependTo('.recent-reports-comments');
-       newEvict.find('.created')
+       var newReport = $('.recent-reports-comments div').first().clone()
+       newReport.prependTo('.recent-reports-comments');
+       newReport.find('.created')
           .text(data.created_at).end()
           .find('.report_comment')
           .text(data.comment).end()
+
+      // var countRequest = $.ajax ({
+      //   url : "http://localhost:3000/buildings/" + data.building_id + "/complaint_count",
+      //   type: 'get',
+      //   dataType: 'json',
+      // });
+      // countRequest.done(function(response){
+      //   $('#evic-count').text(response.evic)
+      //   $('#fix-count').text(response.fix_order)
+      //   $('#harass-count').text(response.harass)
+      //   $('#rent-count').text(response.rent)
+      // });
 
 
       var scoreRequest = $.ajax({

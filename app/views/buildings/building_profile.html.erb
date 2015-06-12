@@ -23,10 +23,10 @@
           </div>
 
           <ul>
-            <li>Harassment Complaints: <%=@building.harassments.count %></li>
-            <li>Maintenence Issues: <%=@building.fix_orders.count %></li>
-            <li>Eviction Notices: <%=@building.eviction_notices.count %></li>
-            <li>Rent Increases: <%=@building.rent_notices.count %></li>
+            <li>Harassment Complaints: <span id="harass-count"><%=@building.harassments.count %></span></li>
+            <li>Maintenence Issues: <span id="fix-count"><%=@building.fix_orders.count %></span></li>
+            <li>Eviction Notices: <span id="evic-count"><%=@building.eviction_notices.count %></span></li>
+            <li>Rent Increases: <span id="rent-count"><%=@building.rent_notices.count %></span></li>
           </ul>
       </div>
 
@@ -55,7 +55,7 @@
           <% if @reports_array.length > 0 %>
             <% @reports_array.each do |report| %>
               <div class="well">
-                <% if  report.class.to_s == "EvictionNotice"  %>
+                <% if report.class.to_s == "EvictionNotice"  %>
                   <h4 class="type-of-comment">Eviction Notice</h4><br>
                 <% elsif  report.class.to_s == "FixOrder" %>
                   <h4 class="type-of-comment">Maintenance Issue</h4><br>

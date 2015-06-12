@@ -1,0 +1,30 @@
+<div class="lease-increase-form">
+
+    <h2>Tell Us About Your Rent Increase</h2>
+
+<form action="/buildings" method="POST" class="new-report-form">
+        <div class="form-group">
+          <label for="issue">Previous Rent:</label>
+          <input type="text" name="prior_rent" class="form-control" id="issue">
+        </div>
+        <div class="form-group">
+          <label for="unresolved">New Rent:</label>
+          <input type="text" name="new_rent" class="form-control" id="unresolved">
+        </div>
+        <input name="authenticity_token" type="hidden" value="<%= session[:_csrf_token] %>"></input>
+
+        <div class="form-group">
+          <label for="evictionComment">Comment: </label>
+          <textarea class="form-control comment-box" rows="3" input type="text"  name="rentcomment" placeholder="Provide more detail..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-default form-button form-group">Submit</button>
+      </form>
+    </div>
+
+
+
+
+
+
+
+

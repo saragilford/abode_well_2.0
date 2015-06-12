@@ -10,6 +10,11 @@ class Building < ActiveRecord::Base
   has_many  :rent_notices
   has_many  :eviction_notices
 
+  accepts_nested_attributes_for  :harassments
+  accepts_nested_attributes_for  :fix_orders
+  accepts_nested_attributes_for  :rent_notices
+  accepts_nested_attributes_for  :eviction_notices
+
 
   #Data Import
 
@@ -18,12 +23,12 @@ class Building < ActiveRecord::Base
   end
 
   def import_pub!
-    # first_batch
-    # second_batch
-    # third_batch
-    # fourth_batch
-    fifth_batch
-    # sixth_batch
+    # first_batch -- done
+    # second_batch -- done
+    # third_batch -- done
+    # fourth_batch -- done
+    # fifth_batch -- done
+    # sixth_batch -- done
   end
 
   def first_batch
@@ -54,6 +59,7 @@ class Building < ActiveRecord::Base
   def import_ellis!(file)
     CSV.foreach(file, encoding: "iso-8859-1:UTF-8", headers: true, header_converters: :symbol) do |row|
        @building = Building.where(orig_address: row[:address]).first
+        next if row[:lat_long] == nil
        if exists?(row[:address])
          p "Changing ELLIS of #{row[:address]}"
          @building.ellis = true
@@ -66,7 +72,7 @@ class Building < ActiveRecord::Base
             orig_address: row[:address],
             latitude: latitude,
             longitude: longitude,
-            move_in: true,
+            ellis: true,
           }
           puts "Creating new building: #{attributes.inspect}"
           Building.create!(attributes)
@@ -77,12 +83,16 @@ class Building < ActiveRecord::Base
   def import_move_in!(file)
     CSV.foreach(file, encoding: "iso-8859-1:UTF-8", headers: true, header_converters: :symbol) do |row|
         @building = Building.where(orig_address: row[:address]).first
+        next if row[:lat_long] == nil
         if exists?(row[:address])
           p "Changing move in of #{row[:address]}"
           @building.move_in = true
         else
+          # p '*' * 80
+          # p row.inspect
+          # p '*' * 80
+
           latitude, longitude = parse_latitude_and_longitude_string(row[:lat_long])
-          p
           attributes = {
             address: reverse_geocode(latitude, longitude),
             zip_code: row[:zip_code],
@@ -136,6 +146,10 @@ class Building < ActiveRecord::Base
       return true
     end
   end
+
+
+
+
 
 
 
