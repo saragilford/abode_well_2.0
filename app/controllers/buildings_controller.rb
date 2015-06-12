@@ -19,7 +19,7 @@ class BuildingsController < ApplicationController
     @neighbors = Building.where(neighborhood: @this_building.neighborhood)
 
       # had a merge conflict here: render results ok?
-    render :results
+    render json: @only_zips.to_json
   end
 
   def new

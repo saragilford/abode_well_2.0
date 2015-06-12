@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
 
  	def index
-    "Search#index page"    
+    "Search#index page"
   end
 
 	def new
@@ -13,7 +13,8 @@ class SearchesController < ApplicationController
 
 		# validates a saved search instance
 		if @search.save
-			redirect_to buildings_search_path :address => @search.address, zip_code: @search.zip_code
+			# redirect_to buildings_search_path :address => @search.address, zip_code: @search.zip_code
+      render json: @search
 		else
 			render :error
 		end
