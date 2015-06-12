@@ -1,15 +1,20 @@
+.big-mama-nav {
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+  margin: 8px;
+  padding-left: 140px;
+}
+
+.navbar-brand {
+  padding-right:  400px;
+  padding-left: 100px;
+}
+
 .debug {
    /*border: 1px solid red;
    padding-top: 3em;*/
 }
 
-.new_nav_button{
-  margin-top: 1em;
-  color: red;
-  /* background-color: lightgray; */
-}
-
-/*Walker added css*/
 
 /*error messag*/
 .error_title {
@@ -19,19 +24,6 @@
 .busted_house {
 background-color:yellow;
 }
-/**/
-
-
-/*nav-bar- Walker*/
-
-.main_logo{
-  height: 3em;
-}
-
-.navy{
-  height: 5em;
-}
-/**/
 
 /*style results table*/
 
@@ -133,27 +125,7 @@ span.about_glyph  {
   font-weight: bolder;
   color: red;
 }
-/*newer stuff*/
 
-
-.new_nav {
-  padding: 1em 0 1em 0;
-  background-color: lightgrey;
-}
-
-new_nav_button{
-  color:grey;
-}
-/*****************************/
-
-.navbar-default .navbar-brand {
-  /* padding: 15px 150px; */
-}
-
-.navbar {
-  margin-bottom: 0px!important;
-  width: 100%
-}
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -173,6 +145,7 @@ body {
 .report-button-container {
   padding-top: 50px;
 }
+
 
 .address {
   font-size: 3em;
@@ -229,4 +202,27 @@ body {
 
 .container {
   padding-bottom: 100px;
+}
+
+.score-box img {
+
+}
+.about-text {
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+  box-sizing: border-box;
+  margin: 2em;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 20px;
+}
+.about-text p {
+  diplay: block;
+  padding-top: 1em;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.about-text ul li {
+  margin-left: 5%;
 }

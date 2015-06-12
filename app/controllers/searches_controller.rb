@@ -15,7 +15,8 @@ class SearchesController < ApplicationController
 
 		# validates a saved search instance
 		if @search.save
-			redirect_to buildings_search_path :address => @search.address, zip_code: @search.zip_code
+			# redirect_to buildings_search_path :address => @search.address, zip_code: @search.zip_code
+      render json: @search
 		else
 			@errors = @search.errors.full_messages
       render :"buildings/index"

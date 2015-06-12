@@ -18,12 +18,14 @@ class BuildingsController < ApplicationController
       @this_building = @only_zips.first
       @neighbors = Building.where(neighborhood: @this_building.neighborhood)
 
-      render :results
+      render json: @only_zips.to_json
+
     else
       session[:address] = params[:address]
       session[:zip_code] = params[:zip_code]
       redirect_to new_building_path
     end
+
   end
 
 
