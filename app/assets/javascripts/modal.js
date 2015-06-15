@@ -1,11 +1,19 @@
 $(document).ready(function() {
 
+
  $('.search-form').on('submit', function(event){
-    event.preventDefault();
+  // if address does not exist redirect rails path
+  window.location.href = '/new_building_path';
+  } else {
+  else event.preventDefault();
+ }
+
+
+
+
     var $mymodal = $('#myModal');
 
     $mymodal.css("display");
-
 
     request =$.ajax({
      url: 'http://localhost:3000/buildings/search'
@@ -13,8 +21,8 @@ $(document).ready(function() {
     });
     request.done(function(data){
       console.log(data);
-      $mymodal.find(), function(data){
-         $mymodal.find('.modal-body').html(data);
+      $mymodal.find('.results-modal'), function(data){
+         $('.results-modal').html('<p><a href=\'buildings/' + data.id +'>' data.address + ', ' + 'San Francisco, ' + data.zip +'</a><p>');
       }
 
     })
