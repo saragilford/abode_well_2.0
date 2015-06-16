@@ -16,7 +16,7 @@ $(document).ready(function() {
       console.log(data[0]);
       if (typeof data[0] === "string") {
         displayErrors(data);
-      } else if (data.length > 0) {
+      } else if (typeof data[0] === "object") {
         console.log(data.length);
         displayResults(data);
         $mymodal.modal('show');
@@ -30,7 +30,8 @@ $(document).ready(function() {
 
 var displayResults = function(results) {
   for (var i = 0; i < results.length; i++) {
-    $('.results-modal').html('<p>' + results[i].address + '</p>');
+    $('#result-link').clone().html('<p><a href=\'/buildings/' + results[i].id + '\'>' + results[i].address + '</a></p>').appendTo('.modal-body');
+
   }
 };
 
