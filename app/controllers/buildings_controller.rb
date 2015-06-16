@@ -1,43 +1,31 @@
 class BuildingsController < ApplicationController
 
+
   def index
 
   end
 
   def search
-    p '*' * 80
-    p "hitting the building search method"
-    p '*' * 80
-    @only_zips = []
-    @buildings = Building.where(zip_code: params[:zip_code])
-
-
-    @buildings.each do |building|
-      if building.only_numbers == params[:address].gsub(/\D/,"")
-        @only_zips << building
-      end
-    end
-
-    if @only_zips.first != nil
-      @this_building = @only_zips.first
-      @neighbors = Building.where(neighborhood: @this_building.neighborhood)
-
-      p '*' * 80
-      p 'success search'
-      p '*' * 80
-      render json: @only_zips.to_json
-      # render :results
-
-    else
-      p '*' * 80
-      p 'FAIL'
-      p '*' * 80
+    list = results_list(params[:address],params[:zip_code])
+    if list.first == nil
+      # render json: list.to_json
       session[:address] = params[:address]
       session[:zip_code] = params[:zip_code]
       redirect_to new_building_path
     end
 
   end
+
+  def results
+    result = results_list(params[:address],params[:zip_code])
+    if result.any?
+      status 200
+      render json: result.to_json
+    else
+      status 404
+    end
+  end
+
 
 
   def new
@@ -145,6 +133,19 @@ class BuildingsController < ApplicationController
     end
 
     private
+
+    def results_list(address,zip_code)
+      @only_zips = []
+      @buildings = Building.where(zip_code: zip_code)
+
+
+      @buildings.each do |building|
+        if building.only_numbers == address.gsub(/\D/,"")
+          @only_zips << building
+        end
+      end
+      return @only_zips
+    end
 
     def parse_address(address,zip_code)
       address + ", " + zip_code.to_s

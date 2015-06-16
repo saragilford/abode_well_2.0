@@ -16,11 +16,17 @@ Rails.application.routes.draw do
 
   resources :searches
 
-  resources :about
+  # resources :about
 
-  resources :learn
+  # resources :learn
 
   get'buildings/search' => 'buildings#search'
+  get'buildings/results' => 'buildings#results'
+
+  get'about' => 'about#index'
+  get'learn' => 'learn#index'
+
+
 
   resources :buildings do
     member do
@@ -34,8 +40,8 @@ Rails.application.routes.draw do
     resources :rent_notices
     resources :eviction_notices
   end
-   resources :property_owners
-   resources :tenants
+   # resources :property_owners
+   # resources :tenants
 
   # Example resource route with options:
   #   resources :products do
