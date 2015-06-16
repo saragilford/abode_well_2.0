@@ -29,8 +29,9 @@ $(document).ready(function() {
 });
 
 var displayResults = function(results) {
-  for (var i = 0; i < results.length; i++) {
-    $('#result-link').clone().html('<p><a href=\'/buildings/' + results[i].id + '\'>' + results[i].address + '</a></p>').appendTo('.modal-body');
+  $('.results-modal').clone().html('<p class=\'result-link\'><a href=\'/buildings/' + results[0].id + '\'>' + results[0].address + '</a></p>').appendTo('.modal-body');
+  for (var i = 1; i < results.length; i++) {
+    $('.result-link').clone().html('<p><a href=\'/buildings/' + results[i].id + '\'>' + results[i].address + '</a></p>').appendTo('.modal-body');
 
   }
 };
