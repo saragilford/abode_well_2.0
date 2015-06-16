@@ -14,28 +14,18 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
 
+
+  get'learn' => 'learn#index'
+  get'about' => 'about#index'
+
   resources :searches
-
-  resources :about
-
-  resources :learn
-
-  get'buildings/search' => 'buildings#search'
-
   resources :buildings do
     member do
       get 'score'
       get 'complaint_count'
     end
   # this method would allow a search results page in buildings
-    resources :ellis_acts
-    resources :harassments
-    resources :fix_orders
-    resources :rent_notices
-    resources :eviction_notices
   end
-   resources :property_owners
-   resources :tenants
 
   # Example resource route with options:
   #   resources :products do

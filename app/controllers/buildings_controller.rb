@@ -1,45 +1,5 @@
 class BuildingsController < ApplicationController
 
-  def index
-
-  end
-
-  def search
-    p '*' * 80
-    p "hitting the building search method"
-    p '*' * 80
-    @only_zips = []
-    @buildings = Building.where(zip_code: params[:zip_code])
-
-
-    @buildings.each do |building|
-      if building.only_numbers == params[:address].gsub(/\D/,"")
-        @only_zips << building
-      end
-    end
-
-    if @only_zips.first != nil
-      @this_building = @only_zips.first
-      @neighbors = Building.where(neighborhood: @this_building.neighborhood)
-
-      p '*' * 80
-      p 'success search'
-      p '*' * 80
-      render json: @only_zips.to_json
-      # render :results
-
-    else
-      p '*' * 80
-      p 'FAIL'
-      p '*' * 80
-      session[:address] = params[:address]
-      session[:zip_code] = params[:zip_code]
-      redirect_to new_building_path
-    end
-
-  end
-
-
   def new
 
     @report_categories = ["Select...", "LeaseIncrease", "MaintenenceIssue", "EvictionNotice", "OtherHarassment"]

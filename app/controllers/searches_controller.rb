@@ -6,16 +6,16 @@ class SearchesController < ApplicationController
     @errors = @search.errors.full_messages
   end
 
-	def new
-    "Search#new page"
-	end
-
 	def create
 		@search = Search.new(address:params[:address], zip_code:params[:zip_code])
-
-		# validates a saved search instance
-		if @search.save
-			redirect_to buildings_search_path :address => @search.address, zip_code: @search.zip_code
+		if @search.valid?
+      list = results_list(params[:address],params[:zip_code])
+      if list.first != nil
+        render json: @only_zips.to_json
+      else
+        session[:address] = params[:address]
+        session[:zip_code] = params[:zip_code]
+      end
 		else
 			@errors = @search.errors.full_messages
       render :"buildings/index"
@@ -23,8 +23,18 @@ class SearchesController < ApplicationController
 
 	end
 
-  def show
-    render json:  @search
+  private
+
+  def results_list(address,zip)
+    @only_zips = []
+    @buildings = Building.where(zip_code: zip)
+
+    @buildings.each do |building|
+      if building.only_numbers == address.gsub(/\D/,"")
+        @only_zips << building
+      end
+    end
+    return @only_zips
   end
 
 end
