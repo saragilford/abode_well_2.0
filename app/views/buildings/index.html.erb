@@ -7,11 +7,8 @@
 
   </div>
   <div class="abode-well-hero-form">
-    <% if @errors %>
-      <%@errors.each do |error| %>
-        <p> <%=error%> </p>
-      <%end%>
-    <%end%>
+    <div class="search-errors">
+    </div>
     <form class="form-inline search-form" action="/searches/" method="post">
       <div class="form-group">
         <label for="search-address">Address</label>

@@ -10,15 +10,11 @@ class SearchesController < ApplicationController
 		@search = Search.new(address:params[:address], zip_code:params[:zip_code])
 		if @search.valid?
       list = results_list(params[:address],params[:zip_code])
-      # if list.first != nil
-        render json: @only_zips.to_json
-      # else
-      #   session[:address] = params[:address]
-      #   session[:zip_code] = params[:zip_code]
-      # end
+      render json: @only_zips.to_json
 		else
 			@errors = @search.errors.full_messages
-      render :"buildings/index"
+      render json: @errors.to_json
+      # render :"buildings/index"
 		end
 
 	end

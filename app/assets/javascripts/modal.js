@@ -13,7 +13,10 @@ $(document).ready(function() {
       type: 'post',
     });
     search.done(function(data){
-      if (data.length > 0) {
+      console.log(data[0]);
+      if (typeof data[0] === "string") {
+        displayErrors(data);
+      } else if (data.length > 0) {
         console.log(data.length);
         displayResults(data);
         $mymodal.modal('show');
@@ -28,5 +31,11 @@ $(document).ready(function() {
 var displayResults = function(results) {
   for (var i = 0; i < results.length; i++) {
     $('.results-modal').html('<p>' + results[i].address + '</p>');
+  }
+};
+
+var displayErrors = function(results) {
+  for (var i = 0; i < results.length; i++) {
+    $('.search-errors').html('<p>' + results[i] + '</p>');
   }
 };
