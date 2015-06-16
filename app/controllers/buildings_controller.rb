@@ -6,6 +6,9 @@ class BuildingsController < ApplicationController
 
     @letter_options = ["Ellis Act", "Landlord Move-In", "Condo Conversion"]
 
+    session[:address] = params[:address]
+    session[:zip_code] = params[:zipcode]
+
   end
 
   def create

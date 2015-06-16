@@ -12,13 +12,13 @@ $(document).ready(function() {
       data: {address: $address, zip_code: $zip},
       type: 'post',
     });
-    search.done(function(data,status){
-      if (status === "success") {
+    search.done(function(data){
+      if (data.length > 0) {
         console.log(data.length);
         displayResults(data);
         $mymodal.modal('show');
       } else {
-        window.location.href = "/buildings/new";
+        window.location.href = "/buildings/new?address="+ $address +"&zipcode=" +$zip;
       }
     });
 });
