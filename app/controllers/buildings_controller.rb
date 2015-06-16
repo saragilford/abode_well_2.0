@@ -1,39 +1,13 @@
 class BuildingsController < ApplicationController
 
-  def index
-
-  end
-
-  def search
-    @only_zips = []
-    @buildings = Building.where(zip_code: params[:zip_code])
-
-    @buildings.each do |building|
-      if building.only_numbers == params[:address].gsub(/\D/,"")
-        @only_zips << building
-      end
-    end
-
-    if @only_zips.first != nil
-      @this_building = @only_zips.first
-      @neighbors = Building.where(neighborhood: @this_building.neighborhood)
-
-      render json: @only_zips.to_json
-
-    else
-      session[:address] = params[:address]
-      session[:zip_code] = params[:zip_code]
-      redirect_to new_building_path
-    end
-
-  end
-
-
   def new
 
     @report_categories = ["Select...", "LeaseIncrease", "MaintenenceIssue", "EvictionNotice", "OtherHarassment"]
 
     @letter_options = ["Ellis Act", "Landlord Move-In", "Condo Conversion"]
+
+    session[:address] = params[:address]
+    session[:zip_code] = params[:zipcode]
 
   end
 

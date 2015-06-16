@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :learn
 
   get'buildings/search' => 'buildings#search'
+  post'buildings/search' => 'buildings#search'
 
   resources :buildings do
     member do
