@@ -34,7 +34,7 @@ $(document).ready(function() {
       var $zip = $('#search-zip-code').val();
 
       window.location.href = "/buildings/new?address="+ $address +"&zipcode=" +$zip;
-   })
+   });
 
 });
 
