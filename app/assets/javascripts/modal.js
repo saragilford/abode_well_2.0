@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+
+
  $('.search-form').on('submit', function(event){
     event.preventDefault();
 
@@ -24,7 +26,15 @@ $(document).ready(function() {
         window.location.href = "/buildings/new?address="+ $address +"&zipcode=" +$zip;
       }
     });
-});
+  });
+   $('#modal-fail-btn').on('click', function(event){
+      event.preventDefault;
+
+      var $address = $('#search-address').val();
+      var $zip = $('#search-zip-code').val();
+
+      window.location.href = "/buildings/new?address="+ $address +"&zipcode=" +$zip;
+   })
 
 });
 
