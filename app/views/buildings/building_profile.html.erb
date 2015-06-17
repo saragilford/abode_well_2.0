@@ -65,7 +65,7 @@
                 <% elsif  report.class.to_s == "Harassment"  %>
                   <h4 class="type-of-comment">Landlord Harassment</h4><br>
                 <% end %>
-                <span class="created"><%= report.created_at.strftime("%b %d, %Y") %></span> | Comment: <span class="report_comment"><%= report.comment %></span>
+                <span class="created"><%= report.created_at %></span> | Comment: <span class="report_comment"><%= report.comment %></span>
               </div>
             <% end %>
           <% end %>
