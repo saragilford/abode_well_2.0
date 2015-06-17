@@ -10,12 +10,6 @@ $(document).ready(function() {
            }, 2000);
 
 
-    $.ajax({
-    url: 'http://localhost:3000',
-    dataType: 'json'
-    }).done(function(data){
-
-    })
   });
 
  // $("#report-form-dropdown").change(function(){

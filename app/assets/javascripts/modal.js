@@ -15,7 +15,7 @@ $(document).ready(function() {
       type: 'post',
     });
     search.done(function(data){
-      console.log(data[0]);
+      console.log(data);
       if (typeof data[0] === "string") {
         displayErrors(data);
       } else if (typeof data[0] === "object") {
@@ -39,9 +39,9 @@ $(document).ready(function() {
 });
 
 var displayResults = function(results) {
-  $('.results-modal').clone().html('<p class=\'result-link\'><a href=\'/buildings/' + results[0].id + '\'>' + results[0].address + '</a></p>').appendTo('.modal-body');
+  $('.results-modal').html('<p class=\'result-link\'><a href=\'/buildings/' + results[0].id + '\'>' + results[0].address + '</a></p>').appendTo('.modal-body');
   for (var i = 1; i < results.length; i++) {
-    $('.result-link').clone().html('<p><a href=\'/buildings/' + results[i].id + '\'>' + results[i].address + '</a></p>').appendTo('.modal-body');
+    $('.results-modal').first().clone().html('<p><a href=\'/buildings/' + results[i].id + '\'>' + results[i].address + '</a></p>').appendTo('.modal-body');
 
   }
 };
