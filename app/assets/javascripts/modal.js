@@ -39,8 +39,7 @@ $(document).ready(function() {
 });
 
 var displayResults = function(results) {
-  $('.results-modal').html('<p class=\'result-link\'><a href=\'/buildings/' + results[0].id + '\'>' + results[0].address + '</a></p>').appendTo('.modal-body');
-  for (var i = 1; i < results.length; i++) {
+  for (var i = 0; i < results.length; i++) {
     $('.results-modal').first().clone().html('<p><a href=\'/buildings/' + results[i].id + '\'>' + results[i].address + '</a></p>').appendTo('.modal-body');
 
   }
