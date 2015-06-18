@@ -8,9 +8,10 @@ class HarassmentsController < ApplicationController
 
 
     if @harass.save
-      respond_to do |format|
-        render json: report_type.merge(harass_hash).to_json
-      end
+      # respond_to do |format|
+        render json: @harass.to_json
+        # report_type.merge(harass_hash).to_json
+      # end
     end
   end
 

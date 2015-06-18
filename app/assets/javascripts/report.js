@@ -24,7 +24,7 @@ $('.report-form').on('submit', function(event){
 
        if (data.class=="Harassment Report") {
         newReport.find('.type-of-comment')
-        .text("Harassment Report")
+        .text("Landlord Harassment")
       };
 
 
