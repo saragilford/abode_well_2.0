@@ -36,9 +36,11 @@ $(document).ready(function() {
       window.location.href = "/buildings/new?address="+ $address +"&zipcode=" +$zip;
    });
 
+
 });
 
 var displayResults = function(results) {
+  $('.modal-body').html('<div class=\'results-modal\'></div>');
   for (var i = 0; i < results.length; i++) {
     $('.results-modal').first().clone().html('<p><a href=\'/buildings/' + results[i].id + '\'>' + results[i].address + '</a></p>').appendTo('.modal-body');
 
