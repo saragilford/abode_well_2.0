@@ -25,8 +25,16 @@ $('.report-form').on('submit', function(event){
        if (data.class=="Harassment Report") {
         newReport.find('.type-of-comment')
         .text("Landlord Harassment")
-      };
-
+      } else if (data.class=="Eviction Notice") {
+        newReport.find('.type-of-comment')
+        .text("Eviction Notice");
+      } else if (data.class=="Rent Increase") {
+        newReport.find('.type-of-comment')
+        .text("Rent Increase");
+      } else if (data.class=="Maintenance Issue") {
+        newReport.find('.type-of-comment')
+        .text("Maintenance Issue");
+      }
 
        newReport.find('.created')
           .text(data.created_at).end()

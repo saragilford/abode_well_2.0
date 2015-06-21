@@ -4,6 +4,9 @@ class EvictionNoticesController < ApplicationController
     @building = Building.where(id: params[:building_id]).first
     @evict = EvictionNotice.new(category: params[:category],comment: params[:comment],building_id: @building.id)
 
+    evict_hash = @evict.attributes
+    report_type = {class: "Eviction Notice"}
+
     p '*' * 80
     p params
     p '&' * 80
@@ -11,11 +14,9 @@ class EvictionNoticesController < ApplicationController
     p '^' * 80
     p @evict
     p '$' * 80
+
     if @evict.save
-      respond_to do |format|
-        format.json { render json: @evict.to_json }
-        format.html {redirect_to building_path(@building)}
-      end
+      render json: evict_hash.merge(report_type).to_json
     else
       p "%" * 80
       p "NOT SAVED"
@@ -25,3 +26,5 @@ class EvictionNoticesController < ApplicationController
   end
 
 end
+
+
