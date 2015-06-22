@@ -5,14 +5,35 @@
   padding-left: 90px;
 }
 
+.navbar {
+  padding-left: 0px;
+}
+
 .navbar-brand {
-  padding-right:  400px;
-  padding-left: 100px;
+  color: black;
+  display: inline-block;
+}
+.navbar-header{
+  height: 70px;
+}
+.about-learn-links {
+  float: right;
+  margin-top: 10px;
 }
 
 .debug {
    /*border: 1px solid red;
    padding-top: 3em;*/
+}
+.nav-glyph {
+  font-size: 2em;
+  color: red;
+}
+#brand-text {
+  display: inline-block;
+  font-size: 2em;
+  padding-left: 5px;
+  color: black;
 }
 
 

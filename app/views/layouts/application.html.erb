@@ -16,9 +16,8 @@
 
 <nav class="navbar debug big-mama-nav">
   <div class="container-fluid">
-
   <!--  <div class="navbar-header">
-       <%= link_to "Home", root_path, class: "navbar-brand" %>
+       <%= link_to "AbodeWell", root_path, class: "navbar-brand" %>
       <%= link_to "About", about_index_path, class: "navbar-brand" %>
       <%= link_to "Learn", learn_index_path, class: "navbar-brand" %>
 
@@ -26,26 +25,16 @@
   </div> -->
 
   <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to "Home", root_path, class: "navbar-brand" %>
-      <%= link_to "About", about_index_path, class: "navbar-brand" %>
-       <%= link_to "Learn", learn_index_path, class: "navbar-brand" %>
-    </div>
+
+      <a href="/" class="navbar-brand"><span class="glyphicon glyphicon-home nav-glyph" aria-hidden="true"></span><p id="brand-text">AbodeWell<p></a>
+
+  </div>
+  <div class="about-learn-links">
+    <a href="/about" class="navbar-brand other-nav">About</a>
+    <a href="/learn" class="navbar-brand other-nav">Learn</a>
+  </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-      <ul class="nav navbar-nav navbar-right">
-
-
-
-    </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
