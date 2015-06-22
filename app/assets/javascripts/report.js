@@ -36,10 +36,10 @@ $('.report-form').on('submit', function(event){
         .text("Maintenance Issue");
       }
 
-       newReport.find('.created')
-          .text(data.created_at).end()
-          .find('.report_comment')
+       newReport.find('.report_comment')
           .text(data.comment).end();
+          // find('.created')
+          // .text(data.created_at).end();
        newReport.prependTo('.recent-reports-comments');
 
       var countRequest = $.ajax ({
