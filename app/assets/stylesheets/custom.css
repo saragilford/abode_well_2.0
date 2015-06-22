@@ -36,7 +36,13 @@
   color: black;
 }
 
-
+.action-btns {
+  margin-right: 10px;
+  margin-top: 30px;
+}
+.pine-nuts {
+  margin-left: 30%;
+}
 /*error messag*/
 .error_title {
   text-align: center;
@@ -238,7 +244,13 @@ body {
   font-size: 20px;
 }
 .about-text p {
-  diplay: block;
+  display: block;
+  padding-top: 1em;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+.about-text h1 {
+  display: block;
   padding-top: 1em;
   margin-right: 5%;
   margin-left: 5%;
